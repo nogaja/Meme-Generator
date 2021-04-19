@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,10 +8,25 @@
     <link rel="stylesheet" href="css/style.css">
     <title>Meme Generator</title>
 </head>
-<body>
+
+<body onload="onInit()">
     <h1>Hello Sprint</h1>
-    <script src ="js/meme-storage-service.js"></script>
-    <script src ="js/meme-service.js"></script>
-    <script src ="js/meme-controller.js"></script>
+    <div class="canvas-container">
+        <!-- REMOVE FUNCTION! -->
+        <canvas id="canvas" width="500" height="500" onclick="draw(event)">
+        </canvas>
+    </div>
+    <!-- g. Add text input to the HTML and dynamically take the text line value from the input to gMeme and from it to the Canvas -->
+    <label for="line-text"></label>
+    <input type="text" id="line-text" name="line-text" onkeydown="onEnterText(this.value)">
+
+
+
+
+
+    <script src="js/meme-storage-service.js"></script>
+    <script src="js/meme-service.js"></script>
+    <script src="js/meme-controller.js"></script>
 </body>
+
 </html>
