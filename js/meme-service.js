@@ -15,7 +15,7 @@ var gMeme = {
     lines: [
         {
             txt: 'I never eat Falafel',
-            size: 20,
+            size: 40,
             align: 'left',
             fill: 'white',
             stroke: 'black'
