@@ -58,7 +58,6 @@ function onEnterText(str){
     linePosX += 20;
     console.log(currChar)
     drawText(currChar,linePosX, linePosY)
-    console.log(linePosX)
 }
 
 
