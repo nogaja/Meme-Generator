@@ -8,7 +8,12 @@ function onInit(){
     gCtx = gCanvas.getContext('2d')
     var imgs = getImages()
     drawImages(imgs)
+    // renderMemes()
 }
+
+//  function renderMemes() {
+//      var strHtmls = 
+//  }
 
 function resizeCanvas() {
     const elContainer = document.querySelector('.canvas-container');
@@ -20,6 +25,7 @@ function resizeCanvas() {
 function drawImages(imgs){
     var img = new Image()
     img.src =  imgs.map( function(i){
+        console.log(i.url)
         return(i.url)
     })
     img.onload = ()=> {

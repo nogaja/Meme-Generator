@@ -27,21 +27,17 @@
             </ul>
         </header>
     </div>
-    <div class= "meme-editor">
+    
+    <div class= "meme-editor" hidden>
         <label for="line-text"></label>
         <input type="text" id="line-text" name="line-text" onInput="onEnterText(this.value)">
+        <canvas id="canvas" width="300" height="300"> </canvas>
     </div>
-    
-        <canvas id="canvas" width="300" height="300"> 
-            <div class="memes-container grid">       
-
-
-            </div>
-        </canvas>
+    <div class="imgs-container grid">
+        
        
 
-
-  
+    </div>
 
     <script src="js/meme-storage-service.js"></script>
     <script src="js/meme-service.js"></script>
