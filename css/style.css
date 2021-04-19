@@ -25,14 +25,17 @@ h1{
     display: block;
 }
 
-/* meme container */
+/*images */
 .imgs-container {
     grid-gap: 15px;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     grid-auto-rows: 300px;
 }
 
+.img-main{
+    height: 300px;
 
+}
 
 
 
