@@ -1,9 +1,10 @@
 'use strict'
-var gCanvas;
+var gCanvas; // I have more than one canvas...
 var gCtx;
 
 function onInit(){
     gCanvas = document.querySelector('#canvas')
+    console.log(gCanvas)
     gCtx = gCanvas.getContext('2d')
     var imgs = getImages()
     drawImages(imgs)
@@ -47,7 +48,7 @@ function drawText(text, x ,y){
 
 // will be in a func
 var linePosX = 0
-var linePosY = 150
+var linePosY = 80
 var currChar='';
 
 // last char does not print + fix spaces

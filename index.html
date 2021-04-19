@@ -10,13 +10,38 @@
 </head>
 
 <body onload="onInit()">
-    <h1>Hello Sprint</h1>
-    <div class="canvas-container">
-        <canvas id="canvas" width="500" height="500" >
-        </canvas>
+
+    <div class="header-container flex">
+        <header class="main-header container flex space-between align-center">
+            <div class="logo">Mg</div>
+            <ul class="main-nav flex clean-list">
+                <a class="active" href="#">
+                    <div class="list-div ">Gallery</div>
+                </a>
+                <a href="#">
+                    <div class="list-div">Memes</div>
+                </a>
+                <a href="#">
+                    <div class="list-div">About</div>
+                </a>
+            </ul>
+        </header>
     </div>
-    <label for="line-text"></label>
-    <input type="text" id="line-text" name="line-text" onkeydown="onEnterText(this.value)">
+    <div class= "meme-editor">
+        <label for="line-text"></label>
+        <input type="text" id="line-text" name="line-text" onInput="onEnterText(this.value)">
+    </div>
+    
+        <canvas id="canvas" width="300" height="300"> 
+            <div class="memes-container grid">       
+
+
+            </div>
+        </canvas>
+       
+
+
+  
 
     <script src="js/meme-storage-service.js"></script>
     <script src="js/meme-service.js"></script>
