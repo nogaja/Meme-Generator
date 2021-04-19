@@ -28,10 +28,16 @@
         </header>
     </div>
     
-    <div class= "meme-editor" hidden>
-        <label for="line-text"></label>
-        <input type="text" id="line-text" name="line-text" onInput="onEnterText(this.value)">
+    <div class= "meme-editor">
+        <div class = "canvas-container">
         <canvas id="canvas" width="300" height="300"> </canvas>
+        </div>
+        <div class= "edit-panel">
+            <label for="line-text"></label>
+            <input type="text" id="line-text" name="line-text" onInput="onEnterText(this.value)">
+            <section class= "top-btns">
+            </section>
+        </div>
     </div>
     <div class="imgs-container grid">
         

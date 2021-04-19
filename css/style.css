@@ -2,42 +2,75 @@
     box-sizing: border-box;
 }
 
+/*  move fonts to another css */
+
 body {
     margin: 0;
 }
 
-h1{
+h1 {
     font-family: Impact;
 }
-
 
 /* COMPONENTS */
 
 /* header */
+
 .header-container {
-    background-color: orange;
+    background-color: #ff7f00;
 }
 
 /* canvas */
+
 #canvas {
     margin: 20px auto;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     display: block;
 }
 
 /*images */
+
 .imgs-container {
     grid-gap: 15px;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     grid-auto-rows: 300px;
 }
 
-.img-main{
-    height: 300px;
-
+.img-main {
+    /* background-position: center center;
+    background-size: cover; */
+    place-self: center;
+    height: 100%;
 }
 
+/* meme-editor */
 
+.meme-editor {
+    display: none;
+    margin: 15px;
+}
+
+/* TODO change from pixels */
+.ctrl-btn{
+    background-color: #fff;
+    cursor: pointer;
+    border: 0.2px solid black;
+    border-radius: 3px;
+    height: 40px;
+}
+
+.ctrl-btn img {
+    height: 40px;
+    width: 40px;
+}
+
+.btn-up::after {
+    content: "↑";
+}
+
+.btn-down::after {
+    content:"↓";
+}
 
 /* HELPERS */
 
@@ -56,9 +89,11 @@ h1{
 }
 
 /* grid helpers */
-.grid{
-    display:grid;
+
+.grid {
+    display: grid;
 }
+
 /* list helpers */
 
 .clean-list {
@@ -66,4 +101,3 @@ h1{
     margin: 0;
     padding: 0;
 }
-

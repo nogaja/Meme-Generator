@@ -7,20 +7,36 @@ function onInit() {
     console.log(gCanvas)
     gCtx = gCanvas.getContext('2d')
     var imgs = getImages()
-    drawImages(imgs) // will need the img id
     renderImgs()
 }
 
- function renderImgs() {
-     var imgs = gImgs
-     console.log(imgs)
-     var strHtmls = imgs.map((img)=>{
+function renderImgs() {
+    var imgs = gImgs
+    var strHtmls = imgs.map((img) => {
         return `
-        <img class="grid img-main" src=${img.url}>
+        <img class="grid img-main" src=${img.url} onclick="onOpenEditor(${img.id})">
         `
-     })
-    document.querySelector('.imgs-container').innerHTML=strHtmls.join('')
- }
+    })
+    document.querySelector('.imgs-container').innerHTML = strHtmls.join('')
+}
+
+function onOpenEditor(imgId) {
+    document.querySelector('.meme-editor').style.display = 'flex'
+    var img = getImgById(imgId)
+    renderBtns(imgId)
+    drawImage(img)
+}
+
+function renderBtns(imgId) {
+    var strHtml = 
+    `
+    <button class= "ctrl-btn" onclick="onChangeFontSize(1,${imgId})"><img src="icons/increase font - icon.png"></button>
+    <button class= "ctrl-btn" onclick="onChangeFontSize(-1,${imgId})"><img src="icons/decrease font - icon.png"></button>
+    <button class= "ctrl-btn btn-up"></button>
+    <button class= "ctrl-btn btn-down"></button>
+    `
+    document.querySelector('.top-btns').innerHTML= strHtml
+}
 
 function resizeCanvas() {
     const elContainer = document.querySelector('.canvas-container');
@@ -29,19 +45,18 @@ function resizeCanvas() {
 }
 
 // change map? see how works for more than one pic
-function drawImages(imgs) {
+function drawImage(selectedImg) {
     var img = new Image()
-    img.src = imgs.map(function (i) {
-        console.log(i.url)
-        return (i.url)
-    })
+    img.src = selectedImg.url
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
     }
 
 }
+// to do: will change line gmeme
+function onChangeFontSize(diff) {
 
-
+}
 // need to take text from gMeme
 // function getText(){
 
