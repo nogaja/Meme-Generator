@@ -61,6 +61,19 @@ function changeLine(imgId) {
         gMeme.lines[1].isFocused = false
         gMeme.lines[1].stroke = 'black'
     }
+
+    // try to access through y..
+    // let currLine = gMeme.selectedLineIdx
+    // console.log(currLine)
+    // if ( gMeme.lines[currLine].posY ===80){
+    //     gMeme.selectedLineIdx++
+    //     gMeme.lines[gMeme.selectedLineIdx].isFocused = true
+    //     gMeme.lines[0].isFocused = false
+    //     gMeme.lines[0].stroke = 'black'
+    //     gMeme.lines[gMeme.selectedLineIdx].stroke = 'red'
+    // } else if ( gMeme.lines[currLine].posY ===140){
+    //     gMeme.selectedLineIdx++
+    // }
 }
 
 // function createLines(){

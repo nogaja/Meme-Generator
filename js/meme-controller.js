@@ -5,7 +5,7 @@ var gCurrLine = gMeme.selectedLineIdx
 console.log(gCurrLine) // does not update
 //TODO : 
 // 1. remove imgID where not needed
-// 2. forEach 
+// 2. support more than 2 lines
 //3. design
 
 function onInit() {
@@ -65,7 +65,6 @@ function onChangeFontSize(diff, imgId) {
     var img = getImgById(imgId)
     drawImage(img)
     var y = gMeme.lines[gMeme.selectedLineIdx].posY 
-    console.log(y)
     setTimeout(drawText, .3, text, 0, y)
 }
 /// you are here
@@ -89,29 +88,19 @@ function onMoveLine(diff, imgId) {
 
 
 function drawText(text, x, y) {
-    var line = gMeme.lines[0] // wil need to change
-    text = `${line.txt}` //weird
-    x = line.posX
-    y = line.posY
-    gCtx.lineWidth = 2
-    gCtx.strokeStyle = `${line.stroke}`
-    gCtx.fillStyle = `${line.fill}`
-    gCtx.font = `${line.size}px  Impact` // todo: handle font change
-    gCtx.textAlign = line.align
-    gCtx.fillText(text, x, y)
-    gCtx.strokeText(text, x, y)
-
-    // hard coded: change to forEach
-    line = gMeme.lines[1]
-    text = `${line.txt}`
-    x = line.posX
-    y = line.posY
-    gCtx.lineWidth = 2
-    gCtx.strokeStyle = `${line.stroke}`
-    gCtx.fillStyle = `${line.fill}`
-    gCtx.font = `${line.size}px  Impact`
-    gCtx.fillText(text, x, y)
-    gCtx.strokeText(text, x, y)
+    var lines = gMeme.lines
+    lines.forEach (function(line){
+        text = `${line.txt}` //weird
+        x = line.posX
+        y = line.posY
+        gCtx.lineWidth = 2
+        gCtx.strokeStyle = `${line.stroke}`
+        gCtx.fillStyle = `${line.fill}`
+        gCtx.font = `${line.size}px  Impact` // todo: handle font change
+        gCtx.textAlign = line.align
+        gCtx.fillText(text, x, y)
+        gCtx.strokeText(text, x, y)
+    })
 }
 
 // cant backspace??? 
