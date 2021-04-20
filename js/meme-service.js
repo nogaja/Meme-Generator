@@ -47,24 +47,24 @@ var gMeme = {
 
 //will need to change for more than 2 lines
 function changeLine(imgId) {
-    if (gMeme.lines.length <= 2) {
-        if (gMeme.selectedLineIdx === 0) {
-            gMeme.selectedLineIdx = 1
-            gMeme.lines[gMeme.selectedLineIdx].isFocused = true
-            gMeme.lines[0].isFocused = false
-            gMeme.lines[0].stroke = 'black' // change to the line written
-            gMeme.lines[gMeme.selectedLineIdx].stroke = 'red'
-        } else if (gMeme.selectedLineIdx === 1) {
-            gMeme.selectedLineIdx = 0
-            gMeme.lines[gMeme.selectedLineIdx].isFocused = true
-            gMeme.lines[gMeme.selectedLineIdx].stroke = 'red'
-            gMeme.lines[1].isFocused = false
-            gMeme.lines[1].stroke = 'black' // change to the line written
-        }
+
+    var selectedLineIdx = gMeme.selectedLineIdx;
+    var newSelectedLineIdx = selectedLineIdx +1;
+    if (newSelectedLineIdx === gMeme.lines.length)
+    { 
+        newSelectedLineIdx = 0;
     }
-    else if (gMeme.lines.length > 2) {
-        console.log('not ready for it')
-    }
+
+            
+            gMeme.lines[selectedLineIdx].isFocused = false
+            gMeme.lines[selectedLineIdx].stroke = 'black' // change to the line written
+            
+            gMeme.lines[newSelectedLineIdx].isFocused = true
+            gMeme.lines[newSelectedLineIdx].stroke = 'red'
+           
+            gMeme.selectedLineIdx = newSelectedLineIdx;
+       
+
 }
 
 function addLine() {
