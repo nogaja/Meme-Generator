@@ -20,28 +20,29 @@ var gImgs = [
 // will need to add function create line/ create lines 
 var gMeme = {
     selectedImgId: 1,
-    selectedLineIdx: 0,
+    selectedLineIdx: 0, //todo: implement this variable in the controller....
     lines: [
         {
             txt: 'I never eat Falafel',
             size: 40,
             align: 'left',
             fill: 'white',
-            stroke: 'black'
+            stroke: 'black',
+            // todo- implement:
+            posX: 0,
+            posY: 80,
         },
         {
             txt: 'With amba',
             size: 30,
             align: 'left',
             fill: 'white',
-            stroke: 'black'
+            stroke: 'black',
+            posX: 0,
+            posY: 200, //see if this size works
         }
     ]
 }
-
-//get meme by id??
-
-
 
 // function createLines(){
 
@@ -49,18 +50,25 @@ var gMeme = {
 // }
 // need to send the functions the line? render...
 function changeFontSize(diff, imgId) {
-    console.log('change size')
-    gMeme.lines[0].size +=diff
+    gMeme.lines[0].size += diff
 }
 
-function returnText(imgId, lineIdx){
-    if(!lineIdx) lineIdx = 0;
+//will I use imgId?
+function getText(imgId, lineIdx) {
+    if (!lineIdx) lineIdx = 0;
     return gMeme.lines[lineIdx].txt
-
 }
 
 function moveLine(diff, imgId) {
-    console.log('move line')
+    gMeme.lines[0].posY += diff
+    return gMeme.lines[0].posY
+}
+
+//will need to change for more than 2 lines
+function changeLine(imgId) {
+    if (gMeme.selectedLineIdx === 0) gMeme.selectedLineIdx = 1
+    else gMeme.selectedLineIdx = 0
+    console.log(gMeme.selectedLineIdx)
 }
 
 function getImgById(ImgId) {
