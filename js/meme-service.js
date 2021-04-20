@@ -47,24 +47,14 @@ var gMeme = {
 
 //will need to change for more than 2 lines
 function changeLine(imgId) {
-
-    var selectedLineIdx = gMeme.selectedLineIdx;
-    var newSelectedLineIdx = selectedLineIdx +1;
-    if (newSelectedLineIdx === gMeme.lines.length)
-    { 
-        newSelectedLineIdx = 0;
-    }
-
-            
-            gMeme.lines[selectedLineIdx].isFocused = false
-            gMeme.lines[selectedLineIdx].stroke = 'black' // change to the line written
-            
-            gMeme.lines[newSelectedLineIdx].isFocused = true
-            gMeme.lines[newSelectedLineIdx].stroke = 'red'
-           
-            gMeme.selectedLineIdx = newSelectedLineIdx;
-       
-
+    var prevLineIdx = gMeme.selectedLineIdx;
+    var newSelectedLineIdx = prevLineIdx +1;
+    if (newSelectedLineIdx === gMeme.lines.length)newSelectedLineIdx = 0;
+    gMeme.lines[prevLineIdx].isFocused = false
+    gMeme.lines[prevLineIdx].stroke = 'black' // change to the line written
+    gMeme.lines[newSelectedLineIdx].isFocused = true
+    gMeme.lines[newSelectedLineIdx].stroke = 'red'
+    gMeme.selectedLineIdx = newSelectedLineIdx;
 }
 
 function addLine() {
@@ -106,8 +96,6 @@ function moveLine(diff, imgId) {
     gMeme.lines[gMeme.selectedLineIdx].posY += diff
     return gMeme.lines[gMeme.selectedLineIdx].posY
 }
-
-
 
 function getImgById(ImgId) {
     var img = gImgs.find((img) => {
