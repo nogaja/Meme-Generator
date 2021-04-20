@@ -1,6 +1,7 @@
 'use strict'
 // to do- storage service to saved memes?
-var gMemes; 
+// var gMemes; 
+
 
 var gNextId = 1;
 
@@ -51,10 +52,14 @@ function changeLine(imgId) {
         gMeme.selectedLineIdx = 1
         gMeme.lines[gMeme.selectedLineIdx].isFocused = true
         gMeme.lines[0].isFocused = false
+        gMeme.lines[0].stroke = 'black'
+        gMeme.lines[gMeme.selectedLineIdx].stroke = 'red'
     } else if (gMeme.selectedLineIdx === 1){
         gMeme.selectedLineIdx = 0
         gMeme.lines[gMeme.selectedLineIdx].isFocused = true
+        gMeme.lines[gMeme.selectedLineIdx].stroke = 'red'
         gMeme.lines[1].isFocused = false
+        gMeme.lines[1].stroke = 'black'
     }
 }
 
@@ -64,7 +69,7 @@ function changeLine(imgId) {
 // }
 // need to send the functions the line? render...
 function changeFontSize(diff, imgId) {
-    gMeme.lines[0].size += diff
+    gMeme.lines[gMeme.selectedLineIdx].size += diff
 }
 
 //will I use imgId?
@@ -74,8 +79,8 @@ function getText(imgId, lineIdx) {
 }
 
 function moveLine(diff, imgId) {
-    gMeme.lines[0].posY += diff
-    return gMeme.lines[0].posY
+    gMeme.lines[gMeme.selectedLineIdx].posY += diff
+    return gMeme.lines[gMeme.selectedLineIdx].posY
 }
 
 

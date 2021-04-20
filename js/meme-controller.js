@@ -1,6 +1,12 @@
 'use strict'
 var gCanvas;
 var gCtx;
+var gCurrLine = gMeme.selectedLineIdx
+console.log(gCurrLine) // does not update
+//TODO : 
+// 1. remove imgID where not needed
+// 2. forEach 
+//3. design
 
 function onInit() {
     gCanvas = document.querySelector('#canvas')
@@ -52,18 +58,21 @@ function drawImage(selectedImg) {
 
 }
 
+//consider different lines draw text!
 function onChangeFontSize(diff, imgId) {
     changeFontSize(diff, imgId)
-    var text = getText(imgId)
+    var text = getText(imgId) // same as other lines..
     var img = getImgById(imgId)
     drawImage(img)
-    setTimeout(drawText, .3, text, 0, 80)
+    var y = gMeme.lines[gMeme.selectedLineIdx].posY 
+    console.log(y)
+    setTimeout(drawText, .3, text, 0, y)
 }
 /// you are here
 //will need to use- gMeme.selectedLineIdx
 function onChangeLine(imgId) {
     changeLine(imgId)
-    //render
+    //render ? focus?
     var text = getText(imgId)
     var img = getImgById(imgId)
     drawImage(img)
@@ -85,41 +94,30 @@ function drawText(text, x, y) {
     x = line.posX
     y = line.posY
     gCtx.lineWidth = 2
-    if (line.isFocused) {
-        line.stroke = 'red'
-        gCtx.strokeStyle = 'red'
-    } else {
-        line.stroke = 'black'
-        gCtx.strokeStyle = `${line.stroke}`
-    }
+    gCtx.strokeStyle = `${line.stroke}`
     gCtx.fillStyle = `${line.fill}`
     gCtx.font = `${line.size}px  Impact` // todo: handle font change
     gCtx.textAlign = line.align
     gCtx.fillText(text, x, y)
     gCtx.strokeText(text, x, y)
+
     // hard coded: change to forEach
     line = gMeme.lines[1]
     text = `${line.txt}`
     x = line.posX
     y = line.posY
     gCtx.lineWidth = 2
-    if (line.isFocused) {
-        line.stroke = 'red'
-        gCtx.strokeStyle = 'red'
-    } else {
-        line.stroke = 'black'
-        gCtx.strokeStyle = `${line.stroke}`
-    }
+    gCtx.strokeStyle = `${line.stroke}`
     gCtx.fillStyle = `${line.fill}`
     gCtx.font = `${line.size}px  Impact`
     gCtx.fillText(text, x, y)
     gCtx.strokeText(text, x, y)
-
 }
 
 // cant backspace??? 
 function onEnterText(txt) {
-    gMeme.lines[0].txt = txt
+    let currLine = gMeme.selectedLineIdx
+    gMeme.lines[currLine].txt = txt
     drawText(txt, 0, 80) // to do- change pos from model pos
 }
 
