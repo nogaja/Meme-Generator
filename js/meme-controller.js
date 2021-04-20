@@ -1,12 +1,10 @@
 'use strict'
-var gCanvas; // I have more than one canvas...
+var gCanvas; 
 var gCtx;
 
 function onInit() {
     gCanvas = document.querySelector('#canvas')
-    console.log(gCanvas)
     gCtx = gCanvas.getContext('2d')
-    var imgs = getImages()
     renderImgs()
 }
 
@@ -32,10 +30,11 @@ function renderBtns(imgId) {
         `
     <button class= "ctrl-btn" onclick="onChangeFontSize(1,${imgId})"><img src="icons/increase font - icon.png"></button>
     <button class= "ctrl-btn" onclick="onChangeFontSize(-1,${imgId})"><img src="icons/decrease font - icon.png"></button>
-    <button class= "ctrl-btn btn-up"></button>
-    <button class= "ctrl-btn btn-down"></button>
+    <button class= "ctrl-btn btn-up" onclick="onMoveLine(1,${imgId})"></button>
+    <button class= "ctrl-btn btn-down" onclick="onMoveLine(-1,${imgId})"></button>
+    <button class= "ctrl-btn btn-change-line" onclick="onChangeLine(${imgId})"><img src="icons/up-and-down-opposite-double-arrows-side-by-side.png"></button>
     `
-    document.querySelector('.top-btns').innerHTML = strHtml
+    document.querySelector('.top-btns').innerHTML = strHtml //change name/sections
 }
 
 function resizeCanvas() {
@@ -44,7 +43,6 @@ function resizeCanvas() {
     gCanvas.height = elContainer.offsetHeight
 }
 
-// change map? see how works for more than one pic
 function drawImage(selectedImg) {
     var img = new Image()
     img.src = selectedImg.url
@@ -53,9 +51,19 @@ function drawImage(selectedImg) {
     }
 
 }
-// to do: will change line gmeme
-function onChangeFontSize(diff) {
 
+function onChangeFontSize(diff,imgId) {
+    console.log('diff,imgId',diff,imgId)
+    changeFontSize(diff,imgId)
+    drawText()
+}
+
+function onChangeLine(imgId){
+    console.log('change line')
+}
+
+function onMoveLine(diff,imgId){
+    moveLine(diff,imgId)
 }
 // need to take text from gMeme
 // function getText(){
@@ -63,12 +71,15 @@ function onChangeFontSize(diff) {
 // }
 
 
+// function draw() {
+//     drawText('Falafel',200,150) 
+// }
 function drawText(text, x, y) {
     var line = gMeme.lines[0] // wil need to change
     gCtx.lineWidth = 2
     gCtx.strokeStyle = `${line.stroke}`
     gCtx.fillStyle = `${line.fill}`
-    gCtx.font = `${line.size}px  Impact`
+    gCtx.font = `${line.size}px  Impact` // todo: handle font change
     gCtx.textAlign = line.align
     gCtx.fillText(text, x, y)
     gCtx.strokeText(text, x, y)

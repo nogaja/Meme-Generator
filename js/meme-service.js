@@ -5,7 +5,7 @@ var gMemes;
 var gNextId = 1;
 
 //bonus number- how many times searched, font-size grows accord.
-var gKeywords = { 'happy': 12, 'funny puk': 1 } 
+var gKeywords = { 'happy': 12, 'funny puk': 1 }
 var gImgs = [
     { id: gNextId++, url: 'images/1.jpg', keywords: ['trump'] },
     { id: gNextId++, url: 'images/2.jpg', keywords: ['dog'] },
@@ -28,6 +28,13 @@ var gMeme = {
             align: 'left',
             fill: 'white',
             stroke: 'black'
+        },
+        {
+            txt: 'With amba',
+            size: 30,
+            align: 'left',
+            fill: 'white',
+            stroke: 'black'
         }
     ]
 }
@@ -36,15 +43,20 @@ var gMeme = {
 
 
 // }
-
-function  getImages(){
-    return gImgs
+// need to send the functions the line?
+function changeFontSize(diff, imgId) {
+    console.log('change size')
+    gMeme.lines[0].size +=diff
+    console.log('gMeme.lines.size',gMeme.lines[0].size)
 }
 
+function moveLine(diff, imgId) {
+    console.log('move line')
+}
 
-function getImgById(ImgId){
-    var img = gImgs.find((img)=>{
-        return ImgId=== img.id
+function getImgById(ImgId) {
+    var img = gImgs.find((img) => {
+        return ImgId === img.id
     })
     return img
 }
