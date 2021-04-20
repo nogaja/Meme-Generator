@@ -30,7 +30,7 @@ var gMeme = {
             fill: 'white',
             stroke: 'black',
             posX: 0,
-            posY: 80,
+            posY: 60,
             isFocused: false
         },
         {
@@ -40,7 +40,7 @@ var gMeme = {
             fill: 'white',
             stroke: 'black',
             posX: 0,
-            posY: 200, //see if this size works
+            posY: 250, //see if this size works
             isFocused: false
         }
     ]
@@ -54,7 +54,7 @@ function changeLine(imgId) {
         gMeme.lines[0].isFocused = false
         gMeme.lines[0].stroke = 'black'
         gMeme.lines[gMeme.selectedLineIdx].stroke = 'red'
-    } else if (gMeme.selectedLineIdx === 1){
+    } else if (gMeme.selectedLineIdx === 1) {
         gMeme.selectedLineIdx = 0
         gMeme.lines[gMeme.selectedLineIdx].isFocused = true
         gMeme.lines[gMeme.selectedLineIdx].stroke = 'red'
@@ -76,8 +76,25 @@ function changeLine(imgId) {
     // }
 }
 
-function addLine(){
+function addLine() {
     console.log('adding line')
+    var line = _createLine()
+    //should be in the middle?
+    gMeme.lines.push(line)
+}
+
+function _createLine() {
+    return {
+        txt: 'new',
+        size: 30,
+        align: 'left',
+        fill: 'white',
+        stroke: 'black',
+        posX: 0,
+        posY: 140, 
+        isFocused: false
+
+    }
 }
 
 function changeFontSize(diff, imgId) {

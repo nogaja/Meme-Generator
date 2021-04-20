@@ -57,33 +57,30 @@ function drawImage(selectedImg) {
 
 function onChangeFontSize(diff, imgId) {
     changeFontSize(diff, imgId)
-    var text = getText(imgId) // same as other lines..
     var img = getImgById(imgId)
     drawImage(img)
-    var y = gMeme.lines[gMeme.selectedLineIdx].posY
-    setTimeout(drawText, .3, text, 0, y)
+    setTimeout(drawText, .3)
 }
 
 function onChangeLine(imgId) {
     changeLine(imgId)
-    var text = getText(imgId)
     var img = getImgById(imgId)
     drawImage(img)
-    setTimeout(drawText, .3, text, 0, 80)
+    setTimeout(drawText, .3)
 }
 
 function onMoveLine(diff, imgId) {
     var newPosY = moveLine(diff, imgId)
-    var text = getText(imgId)
     var img = getImgById(imgId)
     drawImage(img)
-    setTimeout(drawText, .3, text, 0, newPosY)
+    setTimeout(drawText, .3,  0, newPosY)
 }
 
 // you are here
 function onAddLine(){
     console.log ('hi')
     addLine()
+    drawText()
 }
 
 function drawText(text, x, y) {
