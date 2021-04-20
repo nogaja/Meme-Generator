@@ -30,7 +30,7 @@ var gMeme = {
             stroke: 'black',
             posX: 0,
             posY: 80,
-            isFocused: true
+            isFocused: false
         },
         {
             txt: 'With amba',
@@ -47,22 +47,15 @@ var gMeme = {
 
 //will need to change for more than 2 lines
 function changeLine(imgId) {
-    gIsLineChanged = true;
-    if (gIsLineChanged){
+    if (gMeme.selectedLineIdx === 0) {
         gMeme.selectedLineIdx = 1
-        gMeme.lines[gMeme.selectedLineIdx].stroke = 'red'
-    } else {
+        gMeme.lines[gMeme.selectedLineIdx].isFocused = true
+        gMeme.lines[0].isFocused = false
+    } else if (gMeme.selectedLineIdx === 1){
         gMeme.selectedLineIdx = 0
-        gMeme.lines[gMeme.selectedLineIdx].stroke = 'red'
-        gMeme.lines[1].stroke = 'red'
-        gIsLineChanged = true;
+        gMeme.lines[gMeme.selectedLineIdx].isFocused = true
+        gMeme.lines[1].isFocused = false
     }
-    // if (gMeme.selectedLineIdx === 0) 
-    // else gMeme.selectedLineIdx = 0
-    // if (gMeme.lines[gMeme.selectedLineIdx].stroke = 'black')gMeme.lines[gMeme.selectedLineIdx].stroke = 'red'
-    // else if (gMeme.lines[gMeme.selectedLineIdx].stroke = 'red')gMeme.lines[gMeme.selectedLineIdx].stroke = 'black'
-     console.log(gMeme)
-    
 }
 
 // function createLines(){

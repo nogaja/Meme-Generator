@@ -55,51 +55,63 @@ function drawImage(selectedImg) {
 function onChangeFontSize(diff, imgId) {
     changeFontSize(diff, imgId)
     var text = getText(imgId)
-    var img= getImgById(imgId)
+    var img = getImgById(imgId)
     drawImage(img)
-    setTimeout( drawText, .3, text, 0, 80)
+    setTimeout(drawText, .3, text, 0, 80)
 }
 /// you are here
 //will need to use- gMeme.selectedLineIdx
 function onChangeLine(imgId) {
-    changeLine(imgId) 
-    //focus on line in DOM:
-    
-
-
-
+    changeLine(imgId)
+    //render
+    var text = getText(imgId)
+    var img = getImgById(imgId)
+    drawImage(img)
+    setTimeout(drawText, .3, text, 0, 80)
 }
 
 function onMoveLine(diff, imgId) {
     var newPosY = moveLine(diff, imgId)
     var text = getText(imgId)
-    var img= getImgById(imgId)
+    var img = getImgById(imgId)
     drawImage(img)
-    setTimeout( drawText, .3, text, 0, newPosY)
+    setTimeout(drawText, .3, text, 0, newPosY)
 }
 
-// will need to go through all the lines?
+
 function drawText(text, x, y) {
     var line = gMeme.lines[0] // wil need to change
-    text= `${line.txt}` //weird
+    text = `${line.txt}` //weird
     x = line.posX
     y = line.posY
     gCtx.lineWidth = 2
-    gCtx.strokeStyle = `${line.stroke}`
+    if (line.isFocused) {
+        line.stroke = 'red'
+        gCtx.strokeStyle = 'red'
+    } else {
+        line.stroke = 'black'
+        gCtx.strokeStyle = `${line.stroke}`
+    }
     gCtx.fillStyle = `${line.fill}`
     gCtx.font = `${line.size}px  Impact` // todo: handle font change
     gCtx.textAlign = line.align
     gCtx.fillText(text, x, y)
     gCtx.strokeText(text, x, y)
     // hard coded: change to forEach
-    var line = gMeme.lines[1] 
-    text= `${line.txt}`
+    line = gMeme.lines[1]
+    text = `${line.txt}`
     x = line.posX
-    y = line.posY 
+    y = line.posY
     gCtx.lineWidth = 2
-    gCtx.strokeStyle = `${line.stroke}`
+    if (line.isFocused) {
+        line.stroke = 'red'
+        gCtx.strokeStyle = 'red'
+    } else {
+        line.stroke = 'black'
+        gCtx.strokeStyle = `${line.stroke}`
+    }
     gCtx.fillStyle = `${line.fill}`
-    gCtx.font = `${line.size}px  Impact` 
+    gCtx.font = `${line.size}px  Impact`
     gCtx.fillText(text, x, y)
     gCtx.strokeText(text, x, y)
 
