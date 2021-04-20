@@ -1,6 +1,5 @@
 'use strict'
-// to do- storage service to saved memes?
-// var gMemes; 
+// to do- storage service to saved memes
 
 
 var gNextId = 1;
@@ -21,7 +20,7 @@ var gImgs = [
 // will need to add function create line/ create lines 
 var gMeme = {
     selectedImgId: 1,
-    selectedLineIdx: 0, //todo: implement this variable in the controller....
+    selectedLineIdx: 0,
     lines: [
         {
             txt: 'I never eat Falafel',
@@ -40,7 +39,7 @@ var gMeme = {
             fill: 'white',
             stroke: 'black',
             posX: 0,
-            posY: 250, //see if this size works
+            posY: 250, 
             isFocused: false
         }
     ]
@@ -48,32 +47,24 @@ var gMeme = {
 
 //will need to change for more than 2 lines
 function changeLine(imgId) {
-    if (gMeme.selectedLineIdx === 0) {
-        gMeme.selectedLineIdx = 1
-        gMeme.lines[gMeme.selectedLineIdx].isFocused = true
-        gMeme.lines[0].isFocused = false
-        gMeme.lines[0].stroke = 'black'
-        gMeme.lines[gMeme.selectedLineIdx].stroke = 'red'
-    } else if (gMeme.selectedLineIdx === 1) {
-        gMeme.selectedLineIdx = 0
-        gMeme.lines[gMeme.selectedLineIdx].isFocused = true
-        gMeme.lines[gMeme.selectedLineIdx].stroke = 'red'
-        gMeme.lines[1].isFocused = false
-        gMeme.lines[1].stroke = 'black'
+    if (gMeme.lines.length <= 2) {
+        if (gMeme.selectedLineIdx === 0) {
+            gMeme.selectedLineIdx = 1
+            gMeme.lines[gMeme.selectedLineIdx].isFocused = true
+            gMeme.lines[0].isFocused = false
+            gMeme.lines[0].stroke = 'black' // change to the line written
+            gMeme.lines[gMeme.selectedLineIdx].stroke = 'red'
+        } else if (gMeme.selectedLineIdx === 1) {
+            gMeme.selectedLineIdx = 0
+            gMeme.lines[gMeme.selectedLineIdx].isFocused = true
+            gMeme.lines[gMeme.selectedLineIdx].stroke = 'red'
+            gMeme.lines[1].isFocused = false
+            gMeme.lines[1].stroke = 'black' // change to the line written
+        }
     }
-
-    // try to access through y..
-    // let currLine = gMeme.selectedLineIdx
-    // console.log(currLine)
-    // if ( gMeme.lines[currLine].posY ===80){
-    //     gMeme.selectedLineIdx++
-    //     gMeme.lines[gMeme.selectedLineIdx].isFocused = true
-    //     gMeme.lines[0].isFocused = false
-    //     gMeme.lines[0].stroke = 'black'
-    //     gMeme.lines[gMeme.selectedLineIdx].stroke = 'red'
-    // } else if ( gMeme.lines[currLine].posY ===140){
-    //     gMeme.selectedLineIdx++
-    // }
+    else if (gMeme.lines.length > 2) {
+        console.log('not ready for it')
+    }
 }
 
 function addLine() {
@@ -81,6 +72,11 @@ function addLine() {
     var line = _createLine()
     //should be in the middle?
     gMeme.lines.push(line)
+}
+
+//todo
+function removeLine() {
+    console.log('removing line')
 }
 
 function _createLine() {
@@ -91,9 +87,8 @@ function _createLine() {
         fill: 'white',
         stroke: 'black',
         posX: 0,
-        posY: 140, 
+        posY: 140,
         isFocused: false
-
     }
 }
 

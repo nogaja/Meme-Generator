@@ -78,9 +78,12 @@ function onMoveLine(diff, imgId) {
 
 // you are here
 function onAddLine(){
-    console.log ('hi')
     addLine()
     drawText()
+}
+
+function onRemoveLine(){
+    removeLine()
 }
 
 function drawText(text, x, y) {
