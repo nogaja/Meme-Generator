@@ -55,9 +55,9 @@ function drawImage(selectedImg) {
 function onChangeFontSize(diff, imgId) {
     changeFontSize(diff, imgId)
     var text = returnText(imgId)
-    console.log('got text:' , text)
-    drawText(text, 0, 80)
-    
+    var img= getImgById(imgId)
+    drawImage(img)
+    setTimeout( drawText, .3, text, 0, 80)
 }
 
 function onChangeLine(imgId) {
