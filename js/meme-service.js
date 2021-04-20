@@ -76,11 +76,10 @@ function changeLine(imgId) {
     // }
 }
 
-// function createLines(){
+function addLine(){
+    console.log('adding line')
+}
 
-
-// }
-// need to send the functions the line? render...
 function changeFontSize(diff, imgId) {
     gMeme.lines[gMeme.selectedLineIdx].size += diff
 }

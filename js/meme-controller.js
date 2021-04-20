@@ -1,8 +1,6 @@
 'use strict'
 var gCanvas;
 var gCtx;
-var gCurrLine = gMeme.selectedLineIdx
-console.log(gCurrLine) // does not update
 //TODO : 
 // 1. remove imgID where not needed
 // 2. support more than 2 lines
@@ -55,23 +53,19 @@ function drawImage(selectedImg) {
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
     }
-
 }
 
-//consider different lines draw text!
 function onChangeFontSize(diff, imgId) {
     changeFontSize(diff, imgId)
     var text = getText(imgId) // same as other lines..
     var img = getImgById(imgId)
     drawImage(img)
-    var y = gMeme.lines[gMeme.selectedLineIdx].posY 
+    var y = gMeme.lines[gMeme.selectedLineIdx].posY
     setTimeout(drawText, .3, text, 0, y)
 }
-/// you are here
-//will need to use- gMeme.selectedLineIdx
+
 function onChangeLine(imgId) {
     changeLine(imgId)
-    //render ? focus?
     var text = getText(imgId)
     var img = getImgById(imgId)
     drawImage(img)
@@ -86,10 +80,15 @@ function onMoveLine(diff, imgId) {
     setTimeout(drawText, .3, text, 0, newPosY)
 }
 
+// you are here
+function onAddLine(){
+    console.log ('hi')
+    addLine()
+}
 
 function drawText(text, x, y) {
     var lines = gMeme.lines
-    lines.forEach (function(line){
+    lines.forEach(function (line) {
         text = `${line.txt}` //weird
         x = line.posX
         y = line.posY
