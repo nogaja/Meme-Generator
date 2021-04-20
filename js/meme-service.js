@@ -39,15 +39,24 @@ var gMeme = {
     ]
 }
 
+//get meme by id??
+
+
+
 // function createLines(){
 
 
 // }
-// need to send the functions the line?
+// need to send the functions the line? render...
 function changeFontSize(diff, imgId) {
     console.log('change size')
     gMeme.lines[0].size +=diff
-    console.log('gMeme.lines.size',gMeme.lines[0].size)
+}
+
+function returnText(imgId, lineIdx){
+    if(!lineIdx) lineIdx = 0;
+    return gMeme.lines[lineIdx].txt
+
 }
 
 function moveLine(diff, imgId) {

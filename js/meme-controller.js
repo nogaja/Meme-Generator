@@ -1,5 +1,5 @@
 'use strict'
-var gCanvas; 
+var gCanvas;
 var gCtx;
 
 function onInit() {
@@ -51,19 +51,21 @@ function drawImage(selectedImg) {
     }
 
 }
-
-function onChangeFontSize(diff,imgId) {
-    console.log('diff,imgId',diff,imgId)
-    changeFontSize(diff,imgId)
-    drawText()
+/// you are here
+function onChangeFontSize(diff, imgId) {
+    changeFontSize(diff, imgId)
+    var text = returnText(imgId)
+    console.log('got text:' , text)
+    drawText(text, 0, 80)
+    
 }
 
-function onChangeLine(imgId){
+function onChangeLine(imgId) {
     console.log('change line')
 }
 
-function onMoveLine(diff,imgId){
-    moveLine(diff,imgId)
+function onMoveLine(diff, imgId) {
+    moveLine(diff, imgId)
 }
 // need to take text from gMeme
 // function getText(){
@@ -76,18 +78,22 @@ function onMoveLine(diff,imgId){
 // }
 function drawText(text, x, y) {
     var line = gMeme.lines[0] // wil need to change
+    text= `${line.txt}` //weird
+    console.log(text)
     gCtx.lineWidth = 2
     gCtx.strokeStyle = `${line.stroke}`
     gCtx.fillStyle = `${line.fill}`
     gCtx.font = `${line.size}px  Impact` // todo: handle font change
+    console.log(  gCtx.font)
     gCtx.textAlign = line.align
     gCtx.fillText(text, x, y)
     gCtx.strokeText(text, x, y)
 }
 
-// cant backspace???
+// cant backspace??? 
 function onEnterText(txt) {
-    drawText(txt, 0, 80)
+    gMeme.lines[0].txt = txt
+    drawText(txt, 0, 80) // from meme?
 }
 
 
