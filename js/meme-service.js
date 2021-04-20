@@ -1,6 +1,6 @@
 'use strict'
 // to do- storage service to saved memes?
-var gMemes;
+var gMemes; 
 
 var gNextId = 1;
 
@@ -28,9 +28,9 @@ var gMeme = {
             align: 'left',
             fill: 'white',
             stroke: 'black',
-            // todo- implement:
             posX: 0,
             posY: 80,
+            isFocused: true
         },
         {
             txt: 'With amba',
@@ -40,8 +40,29 @@ var gMeme = {
             stroke: 'black',
             posX: 0,
             posY: 200, //see if this size works
+            isFocused: false
         }
     ]
+}
+
+//will need to change for more than 2 lines
+function changeLine(imgId) {
+    gIsLineChanged = true;
+    if (gIsLineChanged){
+        gMeme.selectedLineIdx = 1
+        gMeme.lines[gMeme.selectedLineIdx].stroke = 'red'
+    } else {
+        gMeme.selectedLineIdx = 0
+        gMeme.lines[gMeme.selectedLineIdx].stroke = 'red'
+        gMeme.lines[1].stroke = 'red'
+        gIsLineChanged = true;
+    }
+    // if (gMeme.selectedLineIdx === 0) 
+    // else gMeme.selectedLineIdx = 0
+    // if (gMeme.lines[gMeme.selectedLineIdx].stroke = 'black')gMeme.lines[gMeme.selectedLineIdx].stroke = 'red'
+    // else if (gMeme.lines[gMeme.selectedLineIdx].stroke = 'red')gMeme.lines[gMeme.selectedLineIdx].stroke = 'black'
+     console.log(gMeme)
+    
 }
 
 // function createLines(){
@@ -64,12 +85,7 @@ function moveLine(diff, imgId) {
     return gMeme.lines[0].posY
 }
 
-//will need to change for more than 2 lines
-function changeLine(imgId) {
-    if (gMeme.selectedLineIdx === 0) gMeme.selectedLineIdx = 1
-    else gMeme.selectedLineIdx = 0
-    console.log(gMeme.selectedLineIdx)
-}
+
 
 function getImgById(ImgId) {
     var img = gImgs.find((img) => {

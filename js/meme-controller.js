@@ -62,7 +62,11 @@ function onChangeFontSize(diff, imgId) {
 /// you are here
 //will need to use- gMeme.selectedLineIdx
 function onChangeLine(imgId) {
-    changeLine(imgId)
+    changeLine(imgId) 
+    //focus on line in DOM:
+    
+
+
 
 }
 
@@ -87,7 +91,7 @@ function drawText(text, x, y) {
     gCtx.textAlign = line.align
     gCtx.fillText(text, x, y)
     gCtx.strokeText(text, x, y)
-    // hard coded:
+    // hard coded: change to forEach
     var line = gMeme.lines[1] 
     text= `${line.txt}`
     x = line.posX
