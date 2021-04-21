@@ -29,6 +29,7 @@ function onShowGallery(){
 function onOpenEditor(imgId) {
     document.querySelector('.meme-editor').style.display = 'flex'
     document.querySelector('.imgs-container').style.opacity = 0
+    gMeme.gSelectedImgId= imgId
     var img = getImgById(imgId)
     renderBtns(imgId)
     drawImage(img)
