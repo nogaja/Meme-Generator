@@ -66,7 +66,11 @@ function onChangeFont(font){
     changeFont(font)
     var img = getImgById(gMeme.gSelectedImgId)
     drawImage(img)
-    drawText()
+    setTimeout(drawText, .3)
+}
+
+function onChangeStrokeColor (color){
+    changeStroke(color)
 }
 
 function onChangeLineFocus(imgId) {
@@ -87,17 +91,17 @@ function onAlign(direction) {
     alignText(direction)
     var img = getImgById(gMeme.gSelectedImgId)
     drawImage(img)
-    drawText()
+    setTimeout(drawText, .3)
 }
 
 function onAddLine() {
     addLine()
-    drawText()
+    setTimeout(drawText, .3)
 }
 
 function onRemoveLine() {
     removeLine()
-    drawText()
+    setTimeout(drawText, .3)
 }
 
 function drawText(text, x, y) {
@@ -121,7 +125,7 @@ function onEnterText(txt) {
     gMeme.lines[currLine].txt = txt
     var img = getImgById(gMeme.gSelectedImgId)
     drawImage(img)
-    drawText(txt)
+    setTimeout(drawText, .3,txt)
 }
 
 

@@ -28,9 +28,10 @@ var gMeme = {
             align: 'center',
             fill: 'white',
             stroke: 'black',
+            prevStroke: 'black',
             posX: 150,
             posY: 60,
-            isFocused: false
+            isFocused: false,
         },
         {
             txt: 'With amba',
@@ -38,6 +39,7 @@ var gMeme = {
             align: 'right', //right from the middle line
             fill: 'white',
             stroke: 'black',
+            prevStroke: 'black',
             posX: 150,
             posY: 250,
             isFocused: false
@@ -52,7 +54,7 @@ function changeLineFocus(imgId) {
     if (newSelectedLineIdx >= gMeme.lines.length) newSelectedLineIdx = 0;
     if (gMeme.lines[prevLineIdx]) {
         gMeme.lines[prevLineIdx].isFocused = false
-        gMeme.lines[prevLineIdx].stroke = 'black' // change to the line written  
+        gMeme.lines[prevLineIdx].stroke = gMeme.lines[gMeme.selectedLineIdx].prevStroke // change to the line written  
     }
     gMeme.lines[newSelectedLineIdx].isFocused = true
     gMeme.lines[newSelectedLineIdx].stroke = 'red'
@@ -79,6 +81,7 @@ function _createLine() {
         align: 'right',
         fill: 'white',
         stroke: 'black',
+        prevStroke: 'black',
         posX: 150,
         posY: 140,
         isFocused: false
@@ -89,12 +92,15 @@ function changeFontSize(diff, imgId) {
     gMeme.lines[gMeme.selectedLineIdx].size += diff
 }
 
-function changeFont(font){
+function changeFont(font) {
     gMeme.selectedFont = font
-    drawText()
 }
 
-//will I use imgId?
+function changeStroke(color) {
+    gMeme.lines[gMeme.selectedLineIdx].prevStroke = color
+}
+
+//will I use imgId? no... FIX!
 function getText(imgId, lineIdx) {
     if (!lineIdx) lineIdx = 0;
     return gMeme.lines[lineIdx].txt

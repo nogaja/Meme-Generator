@@ -73,6 +73,14 @@ a {
     display: none;
     margin: 15px;
 }
+
+.stroke-input{
+    position: absolute;
+    opacity: 0;
+    height: 50px;
+    left: 496px;
+}
+
 /* social */
 .social{
     flex-grow: 1;
