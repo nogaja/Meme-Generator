@@ -3,7 +3,6 @@ var gCanvas;
 var gCtx;
 //TODO : 
 // 1. remove imgID where not needed
-// 2. remove from service design factors
 //3. design
 
 function onInit() {
@@ -22,8 +21,14 @@ function renderImgs() {
     document.querySelector('.imgs-container').innerHTML = strHtmls.join('')
 }
 
+function onShowGallery(){
+    document.querySelector('.meme-editor').style.display = 'none'
+    document.querySelector('.imgs-container').style.opacity = 1
+}
+
 function onOpenEditor(imgId) {
     document.querySelector('.meme-editor').style.display = 'flex'
+    document.querySelector('.imgs-container').style.opacity = 0
     var img = getImgById(imgId)
     renderBtns(imgId)
     drawImage(img)
@@ -137,7 +142,6 @@ function onEnterText(txt) {
 }
 
 function onDownloadMeme(elLink) {
-    console.log('downloading...')
     const data = gCanvas.toDataURL()
     elLink.href = data
 }
