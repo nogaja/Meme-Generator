@@ -47,7 +47,7 @@ var gMeme = {
 }
 
 //will need to change for more than 2 lines
-function changeLineFocus(imgId) {
+function changeLineFocus() {
     var prevLineIdx = gMeme.selectedLineIdx;
     var newSelectedLineIdx = prevLineIdx + 1;
     if (newSelectedLineIdx >= gMeme.lines.length) newSelectedLineIdx = 0;
@@ -91,7 +91,7 @@ function _createLine() {
     }
 }
 
-function changeFontSize(diff, imgId) {
+function changeFontSize(diff) {
     gMeme.lines[gMeme.selectedLineIdx].size += diff
 }
 
@@ -113,7 +113,7 @@ function getText(imgId, lineIdx) {
     return gMeme.lines[lineIdx].txt
 }
 
-function moveLine(diff, imgId) {
+function moveLine(diff) {
     gMeme.lines[gMeme.selectedLineIdx].posY += diff
     return gMeme.lines[gMeme.selectedLineIdx].posY
 }

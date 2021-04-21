@@ -9,6 +9,11 @@
     src: url(../fonts/awesome/fa-brands-400.ttf);
 }
 
+@font-face {
+    font-family: Impact;
+    src: url(../fonts/Impact.ttf)
+}
+
 body {
     margin: 0;
 }
@@ -106,10 +111,6 @@ a {
     left: 0px;
 }
 
-/* .fill-input {
-    left: 552px;
-} */
-
 .bottom-btns {
     margin-top: 15px;
 }
@@ -151,9 +152,11 @@ a {
     font-family: brands;
     transition: .3s;
 }
-.fa.github::before{
+
+.fa.github::before {
     content: '\f113'
 }
+
 .fa.github:hover {
     background-color: #161b22;
 }
@@ -162,7 +165,7 @@ a {
     content: '\f0e1';
 }
 
-.fa.linkedin:hover{
+.fa.linkedin:hover {
     background-color: #0a66c2;
 }
 
