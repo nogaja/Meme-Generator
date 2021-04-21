@@ -25,20 +25,20 @@ var gMeme = {
         {
             txt: 'I never eat Falafel',
             size: 40,
-            align: 'left',
+            align: 'center',
             fill: 'white',
             stroke: 'black',
-            posX: 0,
+            posX: 150,
             posY: 60,
             isFocused: false
         },
         {
             txt: 'With amba',
             size: 30,
-            align: 'left',
+            align: 'right', //right from the middle line
             fill: 'white',
             stroke: 'black',
-            posX: 0,
+            posX: 150,
             posY: 250, 
             isFocused: false
         }
@@ -57,10 +57,12 @@ function changeLine(imgId) {
     gMeme.selectedLineIdx = newSelectedLineIdx;
 }
 
+function alignText(direction){
+    gMeme.lines[gMeme.selectedLineIdx].align = direction
+}
+
 function addLine() {
-    console.log('adding line')
     var line = _createLine()
-    //should be in the middle?
     gMeme.lines.push(line)
 }
 
@@ -73,10 +75,10 @@ function _createLine() {
     return {
         txt: 'new',
         size: 30,
-        align: 'left',
+        align: 'right', 
         fill: 'white',
         stroke: 'black',
-        posX: 0,
+        posX: 150,
         posY: 140,
         isFocused: false
     }
@@ -94,7 +96,7 @@ function getText(imgId, lineIdx) {
 
 function moveLine(diff, imgId) {
     gMeme.lines[gMeme.selectedLineIdx].posY += diff
-    return gMeme.lines[gMeme.selectedLineIdx].posY
+    return gMeme.lines[gMeme.selectedLineIdx].posY 
 }
 
 function getImgById(ImgId) {

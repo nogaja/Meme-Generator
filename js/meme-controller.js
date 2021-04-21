@@ -3,7 +3,7 @@ var gCanvas;
 var gCtx;
 //TODO : 
 // 1. remove imgID where not needed
-// 2. support more than 2 lines
+// 2. remove from service design factors
 //3. design
 
 function onInit() {
@@ -73,16 +73,20 @@ function onMoveLine(diff, imgId) {
     var newPosY = moveLine(diff, imgId)
     var img = getImgById(imgId)
     drawImage(img)
-    setTimeout(drawText, .3,  0, newPosY)
+    setTimeout(drawText, .3, 0, newPosY)
+}
+// you are here
+function onAlign(direction) {
+    alignText(direction)
+    drawText()
 }
 
-// you are here
-function onAddLine(){
+function onAddLine() {
     addLine()
     drawText()
 }
 
-function onRemoveLine(){
+function onRemoveLine() {
     removeLine()
 }
 
