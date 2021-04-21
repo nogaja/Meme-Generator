@@ -39,7 +39,7 @@ var gMeme = {
             fill: 'white',
             stroke: 'black',
             posX: 150,
-            posY: 250, 
+            posY: 250,
             isFocused: false
         }
     ]
@@ -48,16 +48,18 @@ var gMeme = {
 //will need to change for more than 2 lines
 function changeLine(imgId) {
     var prevLineIdx = gMeme.selectedLineIdx;
-    var newSelectedLineIdx = prevLineIdx +1;
-    if (newSelectedLineIdx === gMeme.lines.length)newSelectedLineIdx = 0;
-    gMeme.lines[prevLineIdx].isFocused = false
-    gMeme.lines[prevLineIdx].stroke = 'black' // change to the line written
+    var newSelectedLineIdx = prevLineIdx + 1;
+    if (newSelectedLineIdx >= gMeme.lines.length) newSelectedLineIdx = 0;
+    if (gMeme.lines[prevLineIdx]) {
+        gMeme.lines[prevLineIdx].isFocused = false
+        gMeme.lines[prevLineIdx].stroke = 'black' // change to the line written  
+    }
     gMeme.lines[newSelectedLineIdx].isFocused = true
     gMeme.lines[newSelectedLineIdx].stroke = 'red'
     gMeme.selectedLineIdx = newSelectedLineIdx;
 }
 
-function alignText(direction){
+function alignText(direction) {
     gMeme.lines[gMeme.selectedLineIdx].align = direction
 }
 
@@ -68,14 +70,15 @@ function addLine() {
 
 //todo
 function removeLine() {
-    console.log('removing line')
+    gMeme.lines.splice(gMeme.selectedLineIdx, 1)
+    console.log('deleted line:', gMeme)
 }
 
 function _createLine() {
     return {
         txt: 'new',
         size: 30,
-        align: 'right', 
+        align: 'right',
         fill: 'white',
         stroke: 'black',
         posX: 150,
@@ -96,7 +99,7 @@ function getText(imgId, lineIdx) {
 
 function moveLine(diff, imgId) {
     gMeme.lines[gMeme.selectedLineIdx].posY += diff
-    return gMeme.lines[gMeme.selectedLineIdx].posY 
+    return gMeme.lines[gMeme.selectedLineIdx].posY
 }
 
 function getImgById(ImgId) {

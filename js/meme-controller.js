@@ -75,7 +75,7 @@ function onMoveLine(diff, imgId) {
     drawImage(img)
     setTimeout(drawText, .3, 0, newPosY)
 }
-// you are here
+
 function onAlign(direction) {
     alignText(direction)
     drawText()
@@ -85,15 +85,16 @@ function onAddLine() {
     addLine()
     drawText()
 }
-
+// you are here
 function onRemoveLine() {
     removeLine()
+    drawText()
 }
 
 function drawText(text, x, y) {
     var lines = gMeme.lines
     lines.forEach(function (line) {
-        text = `${line.txt}` //weird
+        text = `${line.txt}` 
         x = line.posX
         y = line.posY
         gCtx.lineWidth = 2
@@ -106,11 +107,10 @@ function drawText(text, x, y) {
     })
 }
 
-// cant backspace??? 
 function onEnterText(txt) {
     let currLine = gMeme.selectedLineIdx
     gMeme.lines[currLine].txt = txt
-    drawText(txt, 0, 80) // to do- change pos from model pos
+    drawText(txt)
 }
 
 
