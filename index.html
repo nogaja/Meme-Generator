@@ -27,37 +27,46 @@
             </ul>
         </header>
     </div>
-    
-    <div class= "meme-editor">
-        <div class = "canvas-container">
-        <canvas id="canvas" width="300" height="300"> </canvas>
+
+    <div class="meme-editor">
+        <div class="canvas-container">
+            <canvas id="canvas" width="300" height="300"> </canvas>
         </div>
-        <div class= "edit-panel">
+        <div class="edit-panel">
             <label for="line-text"></label>
             <input type="text" id="line-text" name="line-text" oninput="onEnterText(this.value)">
-            <section class= "top-btns">
+            <section class="top-btns">
             </section>
-            <section class= "middle-btns">
+            <section class="middle-btns">
                 <button class="ctrl-btn" onclick="onAddLine()"><img src="icons/add.png"></button>
                 <button class="ctrl-btn" onclick="onRemoveLine()"><img src="icons/trash.png"></button>
             </section>
-            <section class= "alignment-btns">
-                <button class= "ctrl-btn" onclick="onAlign('right')"><img src="icons/align-to-left.png"></button>
-                <button class= "ctrl-btn"  onclick="onAlign('center')"><img src="icons/center-text-alignment.png"></button>
-                <button class= "ctrl-btn"  onclick="onAlign('left')"><img src="icons/align-to-right.png"></button>
+            <section class="alignment-btns">
+                <button class="ctrl-btn" onclick="onAlign('right')"><img src="icons/align-to-left.png"></button>
+                <button class="ctrl-btn" onclick="onAlign('center')"><img
+                        src="icons/center-text-alignment.png"></button>
+                <button class="ctrl-btn" onclick="onAlign('left')"><img src="icons/align-to-right.png"></button><br>
+                <label for="fonts">Choose a font:</label>
+                <select onchange="onChangeFont(value)" name="fonts" id="fonts">
+                    <!-- implement font style on options -->
+                    <option value="Impact">Impact</option>
+                    <option value="Arial">Arial</option>
+                    <option value="Tahoma">Tahoma</option>
+                    <option value="Calibri">Calibri</option>
+                </select>
             </section>
-            <section class= "buttom-btns">
+            <section class="buttom-btns">
 
             </section>
         </div>
     </div>
     <div class="imgs-container grid">
-        
+
     </div>
-    <div class= "social">
-            
+    <div class="social">
+
     </div>
-    <footer class= "main-footer"></footer>
+    <footer class="main-footer"></footer>
 
     <script src="js/meme-storage-service.js"></script>
     <script src="js/meme-service.js"></script>

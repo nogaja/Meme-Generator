@@ -1,7 +1,6 @@
 'use strict'
 // to do- storage service to saved memes
 
-
 var gNextId = 1;
 
 //bonus number- how many times searched, font-size grows accord.
@@ -19,8 +18,9 @@ var gImgs = [
 
 // will need to add function create line/ create lines 
 var gMeme = {
-    selectedImgId: 1,
+    gSelectedImgId: 1,
     selectedLineIdx: 0,
+    selectedFont: 'Impact',
     lines: [
         {
             txt: 'I never eat Falafel',
@@ -46,7 +46,7 @@ var gMeme = {
 }
 
 //will need to change for more than 2 lines
-function changeLine(imgId) {
+function changeLineFocus(imgId) {
     var prevLineIdx = gMeme.selectedLineIdx;
     var newSelectedLineIdx = prevLineIdx + 1;
     if (newSelectedLineIdx >= gMeme.lines.length) newSelectedLineIdx = 0;
@@ -68,10 +68,8 @@ function addLine() {
     gMeme.lines.push(line)
 }
 
-//todo
 function removeLine() {
     gMeme.lines.splice(gMeme.selectedLineIdx, 1)
-    console.log('deleted line:', gMeme)
 }
 
 function _createLine() {
@@ -89,6 +87,11 @@ function _createLine() {
 
 function changeFontSize(diff, imgId) {
     gMeme.lines[gMeme.selectedLineIdx].size += diff
+}
+
+function changeFont(font){
+    gMeme.selectedFont = font
+    drawText()
 }
 
 //will I use imgId?

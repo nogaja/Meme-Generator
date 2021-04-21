@@ -36,7 +36,7 @@ function renderBtns(imgId) {
     <button class= "ctrl-btn" onclick="onChangeFontSize(-1,${imgId})"><img src="icons/decrease font - icon.png"></button>
     <button class= "ctrl-btn btn-up" onclick="onMoveLine(-1,${imgId})"></button>
     <button class= "ctrl-btn btn-down" onclick="onMoveLine(1,${imgId})"></button>
-    <button class= "ctrl-btn btn-change-line" onclick="onChangeLine(${imgId})"><img src="icons/up-and-down-opposite-double-arrows-side-by-side.png"></button>
+    <button class= "ctrl-btn btn-change-line" onclick="onChangeLineFocus(${imgId})"><img src="icons/up-and-down-opposite-double-arrows-side-by-side.png"></button>
     `
     document.querySelector('.top-btns').innerHTML = strHtml //change name/sections
 }
@@ -61,9 +61,16 @@ function onChangeFontSize(diff, imgId) {
     drawImage(img)
     setTimeout(drawText, .3)
 }
+// you are here
+function onChangeFont(font){
+    changeFont(font)
+    var img = getImgById(gMeme.gSelectedImgId)
+    drawImage(img)
+    drawText()
+}
 
-function onChangeLine(imgId) {
-    changeLine(imgId)
+function onChangeLineFocus(imgId) {
+    changeLineFocus(imgId)
     var img = getImgById(imgId)
     drawImage(img)
     setTimeout(drawText, .3)
@@ -78,6 +85,8 @@ function onMoveLine(diff, imgId) {
 
 function onAlign(direction) {
     alignText(direction)
+    var img = getImgById(gMeme.gSelectedImgId)
+    drawImage(img)
     drawText()
 }
 
@@ -85,7 +94,7 @@ function onAddLine() {
     addLine()
     drawText()
 }
-// you are here
+
 function onRemoveLine() {
     removeLine()
     drawText()
@@ -100,7 +109,7 @@ function drawText(text, x, y) {
         gCtx.lineWidth = 2
         gCtx.strokeStyle = `${line.stroke}`
         gCtx.fillStyle = `${line.fill}`
-        gCtx.font = `${line.size}px  Impact` // todo: handle font change
+        gCtx.font = `${line.size}px  ${gMeme.selectedFont}`
         gCtx.textAlign = line.align
         gCtx.fillText(text, x, y)
         gCtx.strokeText(text, x, y)
@@ -110,6 +119,8 @@ function drawText(text, x, y) {
 function onEnterText(txt) {
     let currLine = gMeme.selectedLineIdx
     gMeme.lines[currLine].txt = txt
+    var img = getImgById(gMeme.gSelectedImgId)
+    drawImage(img)
     drawText(txt)
 }
 
