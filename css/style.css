@@ -87,6 +87,14 @@ a {
     left: 547px;
 }
 
+.bottom-btns{
+    margin-top: 15px;
+}
+
+.bottom-btns a {
+    background-color: #ff7f00;
+}
+
 /* social */
 .social{
     flex-grow: 1;

@@ -63,18 +63,18 @@ function onChangeFontSize(diff, imgId) {
     setTimeout(drawText, .3)
 }
 // you are here
-function onChangeFont(font){
+function onChangeFont(font) {
     changeFont(font)
     var img = getImgById(gMeme.gSelectedImgId)
     drawImage(img)
     setTimeout(drawText, .3)
 }
 
-function onChangeStrokeColor (color){
+function onChangeStrokeColor(color) {
     changeStroke(color)
 }
 
-function onChangeFillColor(color){
+function onChangeFillColor(color) {
     changeFill(color)
 }
 
@@ -109,7 +109,7 @@ function onRemoveLine() {
     setTimeout(drawText, .3)
 }
 
-function onRemoveFocus(){
+function onRemoveFocus() {
     removeFocus()
     setTimeout(drawText, .3)
 }
@@ -117,7 +117,7 @@ function onRemoveFocus(){
 function drawText(text, x, y) {
     var lines = gMeme.lines
     lines.forEach(function (line) {
-        text = `${line.txt}` 
+        text = `${line.txt}`
         x = line.posX
         y = line.posY
         gCtx.lineWidth = 2
@@ -135,7 +135,13 @@ function onEnterText(txt) {
     gMeme.lines[currLine].txt = txt
     var img = getImgById(gMeme.gSelectedImgId)
     drawImage(img)
-    setTimeout(drawText, .3,txt)
+    setTimeout(drawText, .3, txt)
+}
+
+function onDownloadMeme(elLink) {
+    console.log('downloading...')
+    const data = gCanvas.toDataURL()
+    elLink.href = data
 }
 
 
