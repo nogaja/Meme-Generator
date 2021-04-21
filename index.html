@@ -36,6 +36,15 @@
             <label for="line-text"></label>
             <input type="text" id="line-text" name="line-text" oninput="onEnterText(this.value)">
             <section class="top-btns flex">
+                <button class="ctrl-btn" onclick="onChangeFontSize(1)"><img
+                        src="icons/increase font - icon.png"></button>
+                <button class="ctrl-btn" onclick="onChangeFontSize(-1)"><img
+                        src="icons/decrease font - icon.png"></button>
+                <button class="ctrl-btn btn-up" onclick="onMoveLine(-1)"><img src="icons/up arrow.png"></button>
+                <button class="ctrl-btn btn-down" onclick="onMoveLine(1)"><img src="icons/down arrow.png"></button>
+                <button class="ctrl-btn" onclick="onChangeLineFocus()"><img
+                        src="icons/up-and-down-opposite-double-arrows-side-by-side.png"></button>
+                <button class="ctrl-btn" onclick="onRemoveFocus()">clear</button>
             </section>
             <section class="middle-btns">
                 <button class="ctrl-btn" onclick="onAddLine()"><img src="icons/add.png"></button>
@@ -56,7 +65,7 @@
                 <option value="Tahoma">Tahoma</option>
                 <option value="Calibri">Calibri</option>
             </select>
-            <div class= "flex">
+            <div class="flex">
                 <div class="relative">
                     <button class="ctrl-btn"><img src="icons/text stroke.png"><input class="color-input" type="color"
                             id="color" value="#ff1111" onchange="onChangeStrokeColor(value)"></button>
@@ -88,14 +97,12 @@
                 <a class="fa linkedin" href="https://www.linkedin.com/in/noga-jacobi-8256291a5/" target="_blank"></a>
                 <a class="fa facebook" href="https://www.facebook.com/noga.jacobi/" target="_blank"></a>
                 <a class="fa github" href="https://github.com/nogaja" target="_blank"></a>
-             </div>
+            </div>
         </div>
-
-
     </div>
     <footer class="main-footer flex-col">
         <div class="logo">memegen</div>
-        <small>all rights reserved 2021.</small>
+        <small>© all rights reserved 2021.</small>
     </footer>
 
     <script src="js/meme-storage-service.js"></script>

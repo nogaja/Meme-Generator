@@ -29,21 +29,7 @@ function onOpenEditor(imgId) {
     document.querySelector('.imgs-container').style.opacity = 0
     gMeme.gSelectedImgId= imgId
     var img = getImgById(imgId)
-    renderBtns(imgId)
     drawImage(img)
-}
-// no need to render
-function renderBtns(imgId) {
-    var strHtml =
-        `
-    <button class= "ctrl-btn" onclick="onChangeFontSize(1)"><img src="icons/increase font - icon.png"></button>
-    <button class= "ctrl-btn" onclick="onChangeFontSize(-1)"><img src="icons/decrease font - icon.png"></button>
-    <button class= "ctrl-btn btn-up" onclick="onMoveLine(-1)"></button>
-    <button class= "ctrl-btn btn-down" onclick="onMoveLine(1)"></button>
-    <button class= "ctrl-btn" onclick="onChangeLineFocus()"><img src="icons/up-and-down-opposite-double-arrows-side-by-side.png"></button>
-    <button class= "ctrl-btn" onclick="onRemoveFocus()">clear</button>
-    `
-    document.querySelector('.top-btns').innerHTML = strHtml //change name/sections
 }
 
 function resizeCanvas() {
@@ -110,6 +96,8 @@ function onAddLine() {
 
 function onRemoveLine() {
     removeLine()
+    var img = getImgById(gMeme.gSelectedImgId)
+    drawImage(img)
     setTimeout(drawText, .3)
 }
 

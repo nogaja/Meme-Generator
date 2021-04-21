@@ -214,14 +214,14 @@ a {
     height: 40px;
     width: 40px;
 }
-
+/* 
 .btn-up::after {
     content: "↑";
 }
 
 .btn-down::after {
     content: "↓";
-}
+} */
 
 /* HELPERS */
 

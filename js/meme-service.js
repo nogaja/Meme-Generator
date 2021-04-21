@@ -1,9 +1,7 @@
 'use strict'
-// to do- storage service to saved memes
-
 var gNextId = 1;
 
-//bonus number- how many times searched, font-size grows accord.
+
 var gKeywords = { 'happy': 12, 'funny puk': 1 }
 var gImgs = [
     { id: gNextId++, url: 'images/1.jpg', keywords: ['trump'] },
@@ -46,7 +44,6 @@ var gMeme = {
     ]
 }
 
-//will need to change for more than 2 lines
 function changeLineFocus() {
     var prevLineIdx = gMeme.selectedLineIdx;
     var newSelectedLineIdx = prevLineIdx + 1;
@@ -105,12 +102,6 @@ function changeStroke(color) {
 
 function changeFill(color) {
     gMeme.lines[gMeme.selectedLineIdx].fill = color
-}
-
-//will I use imgId? no... FIX!
-function getText(imgId, lineIdx) {
-    if (!lineIdx) lineIdx = 0;
-    return gMeme.lines[lineIdx].txt
 }
 
 function moveLine(diff) {
