@@ -35,19 +35,20 @@
         <div class="edit-panel">
             <label for="line-text"></label>
             <input type="text" id="line-text" name="line-text" oninput="onEnterText(this.value)">
-            <section class="top-btns">
+            <section class="top-btns flex">
             </section>
             <section class="middle-btns">
                 <button class="ctrl-btn" onclick="onAddLine()"><img src="icons/add.png"></button>
                 <button class="ctrl-btn" onclick="onRemoveLine()"><img src="icons/trash.png"></button>
-            </section>
-            <section class="alignment-btns">
                 <button class="ctrl-btn" onclick="onAlign('right')"><img src="icons/align-to-left.png"></button>
                 <button class="ctrl-btn" onclick="onAlign('center')"><img
                         src="icons/center-text-alignment.png"></button>
                 <button class="ctrl-btn" onclick="onAlign('left')"><img src="icons/align-to-right.png"></button>
             </section>
-            <label for="fonts">Choose a font:</label>
+            <section class="alignment-btns">
+             
+            </section>
+            <label for="fonts">font:</label>
             <select onchange="onChangeFont(value)" name="fonts" id="fonts">
                 <!-- implement font style on options -->
                 <option value="Impact">Impact</option>
@@ -61,14 +62,51 @@
             <input class="color-input fill-input" type="color" id="color" value="#ff1111"
                 onchange="onChangeFillColor(value)">
             <section class="bottom-btns">
-                <a class ="ctrl-btn download-btn" href="#" onclick="onDownloadMeme(this)" download="">Download</a>
+                <a class="ctrl-btn download-btn" href="#" onclick="onDownloadMeme(this)" download="">Download</a>
             </section>
         </div>
     </div>
     <div class="imgs-container grid">
 
     </div>
-    <div class="social">
+    <div class="social flex">
+        <div class="flex-col">
+            <div class="me">
+                <img class="rounded-circle" src="images/Noga.jpg" alt="">
+<!--                 
+                <ul class="list-inline social-buttons">
+                    <li class="list-inline-item">
+                        <a href="#">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#">
+                            <i class="fa fa-linkedin"></i>
+                        </a>
+                    </li>
+                </ul> -->
+            </div>
+        </div>
+        <div class="flex-col">
+            <h4>Noga Jacobi</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut
+                eaque, laboriosam veritatis, quos non quis ad perspiciatis,
+                totam corporis ea, alias ut unde. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque,
+                laboriosam veritatis, quos non quis ad perspiciatis,
+                totam corporis ea, alias ut unde.</p>
+                <ul class = "flex clean-list">
+                    <li>facebook</li>
+                    <li>facebook</li>
+                    <li>facebook</li>
+                </ul>
+        </div>
+
 
     </div>
     <footer class="main-footer"></footer>

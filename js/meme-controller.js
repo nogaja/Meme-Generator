@@ -28,7 +28,7 @@ function onOpenEditor(imgId) {
     renderBtns(imgId)
     drawImage(img)
 }
-
+// no need to render
 function renderBtns(imgId) {
     var strHtml =
         `
@@ -37,7 +37,7 @@ function renderBtns(imgId) {
     <button class= "ctrl-btn btn-up" onclick="onMoveLine(-1,${imgId})"></button>
     <button class= "ctrl-btn btn-down" onclick="onMoveLine(1,${imgId})"></button>
     <button class= "ctrl-btn" onclick="onChangeLineFocus(${imgId})"><img src="icons/up-and-down-opposite-double-arrows-side-by-side.png"></button>
-    <button class= "ctrl-btn" onclick="onRemoveFocus()">remove focus</button>
+    <button class= "ctrl-btn" onclick="onRemoveFocus()">clear</button>
     `
     document.querySelector('.top-btns').innerHTML = strHtml //change name/sections
 }
@@ -62,11 +62,9 @@ function onChangeFontSize(diff, imgId) {
     drawImage(img)
     setTimeout(drawText, .3)
 }
-// you are here
+// you are here bug
 function onChangeFont(font) {
     changeFont(font)
-    var img = getImgById(gMeme.gSelectedImgId)
-    drawImage(img)
     setTimeout(drawText, .3)
 }
 
@@ -94,8 +92,8 @@ function onMoveLine(diff, imgId) {
 
 function onAlign(direction) {
     alignText(direction)
-    var img = getImgById(gMeme.gSelectedImgId)
-    drawImage(img)
+    // var img = getImgById(gMeme.gSelectedImgId) //PROB WITH IMGID
+    // drawImage(img)
     setTimeout(drawText, .3)
 }
 

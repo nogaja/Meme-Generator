@@ -28,8 +28,9 @@ a {
 /* COMPONENTS */
 
 /* header */
-.logo{
-    color:#fff;
+
+.logo {
+    color: #fff;
     font-weight: bold;
     font-size: 22px;
 }
@@ -47,8 +48,8 @@ a {
 
 #canvas {
     margin: 20px auto;
-    /* border: 1px solid black; */
     display: block;
+    margin-inline-end: 20px;
 }
 
 /*images */
@@ -74,20 +75,34 @@ a {
     margin: 15px;
 }
 
-.color-input{
+.edit-panel{
+    margin: 20px auto;
+}
+
+.edit-panel > *{
+    margin-bottom: 10px;
+    
+}
+
+#line-text{
+    width:100%;
+    height: 35px;
+}
+
+.color-input {
     position: absolute;
     opacity: 0;
     height: 50px;
     width: 50px;
     cursor: pointer;
-    left: 489px;
+    left: 446px;
 }
 
-.fill-input{
-    left: 547px;
+.fill-input {
+    left: 504px;
 }
 
-.bottom-btns{
+.bottom-btns {
     margin-top: 15px;
 }
 
@@ -96,13 +111,21 @@ a {
 }
 
 /* social */
-.social{
+
+.social {
     flex-grow: 1;
 }
 
+.rounded-circle {
+    width: 119px;
+    border-radius: 50%
+}
+
 /* footer */
+
 /* prob with height */
-.main-footer{
+
+.main-footer {
     text-align: center;
     width: 100%;
     height: 100px;
@@ -111,12 +134,15 @@ a {
 }
 
 /* TODO change from pixels */
-.ctrl-btn{
+
+.ctrl-btn {
     background-color: #fff;
     cursor: pointer;
     border: 0.2px solid black;
     border-radius: 3px;
     height: 50px;
+    width: 50px;
+    margin-right: 5px;
 }
 
 .ctrl-btn img {
@@ -129,7 +155,7 @@ a {
 }
 
 .btn-down::after {
-    content:"↓";
+    content: "↓";
 }
 
 /* HELPERS */
@@ -138,6 +164,10 @@ a {
 
 .flex {
     display: flex;
+}
+
+.flex-col {
+    flex-direction: column;
 }
 
 .space-between {
