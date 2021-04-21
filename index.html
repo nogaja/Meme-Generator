@@ -15,7 +15,7 @@
         <header class="main-header container flex space-between align-center">
             <div class="logo">memegen</div>
             <ul class="main-nav flex clean-list">
-                <a  onclick = "onShowGallery()" href="#">
+                <a onclick="onShowGallery()" href="#">
                     <div class="list-div ">Gallery</div>
                 </a>
                 <a href="#">
@@ -46,7 +46,7 @@
                 <button class="ctrl-btn" onclick="onAlign('left')"><img src="icons/align-to-right.png"></button>
             </section>
             <section class="alignment-btns">
-             
+
             </section>
             <label for="fonts">font:</label>
             <select onchange="onChangeFont(value)" name="fonts" id="fonts">
@@ -56,11 +56,17 @@
                 <option value="Tahoma">Tahoma</option>
                 <option value="Calibri">Calibri</option>
             </select>
-            <button class="ctrl-btn"><img src="icons/text stroke.png"></button>
-            <input class="color-input" type="color" id="color" value="#ff1111" onchange="onChangeStrokeColor(value)">
-            <button class="ctrl-btn"><img src="icons/paint-board-and-brush.png"></button>
-            <input class="color-input fill-input" type="color" id="color" value="#ff1111"
-                onchange="onChangeFillColor(value)">
+            <div class= "flex">
+                <div class="relative">
+                    <button class="ctrl-btn"><img src="icons/text stroke.png"><input class="color-input" type="color"
+                            id="color" value="#ff1111" onchange="onChangeStrokeColor(value)"></button>
+                </div>
+                <div class="relative">
+                    <button class="ctrl-btn"><img src="icons/paint-board-and-brush.png"><input
+                            class="color-input fill-input" type="color" id="color" value="#ff1111"
+                            onchange="onChangeFillColor(value)"></button>
+                </div>
+            </div>
             <section class="bottom-btns">
                 <a class="ctrl-btn download-btn" href="#" onclick="onDownloadMeme(this)" download="">Download</a>
             </section>
@@ -73,7 +79,7 @@
         <div class="flex-col">
             <div class="me">
                 <img class="rounded-circle" src="images/Noga.jpg" alt="">
-<!--                 
+                <!--                 
                 <ul class="list-inline social-buttons">
                     <li class="list-inline-item">
                         <a href="#">
@@ -100,11 +106,11 @@
                 totam corporis ea, alias ut unde. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque,
                 laboriosam veritatis, quos non quis ad perspiciatis,
                 totam corporis ea, alias ut unde.</p>
-                <ul class = "flex clean-list">
-                    <li>facebook</li>
-                    <li>facebook</li>
-                    <li>facebook</li>
-                </ul>
+            <ul class="flex clean-list">
+                <li>facebook</li>
+                <li>facebook</li>
+                <li>facebook</li>
+            </ul>
         </div>
 
 

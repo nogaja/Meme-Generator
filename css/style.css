@@ -25,6 +25,10 @@ a {
     width:100%;
 }
 
+.relative {
+    position: relative;
+}
+
 /* COMPONENTS */
 
 /* header */
@@ -91,17 +95,18 @@ a {
 }
 
 .color-input {
-    position: absolute;
     opacity: 0;
     height: 50px;
     width: 50px;
     cursor: pointer;
-    left: 493px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
 }
 
-.fill-input {
+/* .fill-input {
     left: 552px;
-}
+} */
 
 .bottom-btns {
     margin-top: 15px;
