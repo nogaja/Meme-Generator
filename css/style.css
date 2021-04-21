@@ -2,7 +2,12 @@
     box-sizing: border-box;
 }
 
-/*  move fonts to another css */
+/* TYPOGRAPHY */
+
+@font-face {
+    font-family: brands;
+    src: url(../fonts/awesome/fa-brands-400.ttf);
+}
 
 body {
     margin: 0;
@@ -22,7 +27,7 @@ a {
 
 .container {
     margin: 0 20px;
-    width:100%;
+    width: 100%;
 }
 
 .relative {
@@ -66,8 +71,6 @@ a {
 }
 
 .img-main {
-    /* background-position: center center;
-    background-size: cover; */
     place-self: center;
     height: 100%;
 }
@@ -80,17 +83,16 @@ a {
     width: 800px;
 }
 
-.edit-panel{
+.edit-panel {
     margin: 20px auto;
 }
 
-.edit-panel > *{
+.edit-panel>* {
     margin-bottom: 10px;
-    
 }
 
-#line-text{
-    width:100%;
+#line-text {
+    width: 100%;
     height: 35px;
 }
 
@@ -114,17 +116,67 @@ a {
 
 .bottom-btns a {
     background-color: #ff7f00;
-    border:none;
+    border: none;
 }
 
 /* social */
 
+.personal {
+    padding-inline-start: 41px;
+    padding-top: 30px;
+}
+
 .social {
-    flex-grow: 1;
+    justify-content: center;
+    padding: 80px 0;
+}
+
+.social-nav>a {
+    display: flex;
+    color: #fff;
+    background-color: #ff7f00;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    border-radius: 7px;
+}
+
+.social-nav>a:not(:last-child) {
+    margin-inline-end: 1rem;
+}
+
+.fa {
+    font-family: brands;
+    transition: .3s;
+}
+.fa.github::before{
+    content: '\f113'
+}
+.fa.github:hover {
+    background-color: #161b22;
+}
+
+.fa.linkedin::before {
+    content: '\f0e1';
+}
+
+.fa.linkedin:hover{
+    background-color: #0a66c2;
+}
+
+.fa.facebook::before {
+    content: '\f39e';
+}
+
+.fa.facebook:hover {
+    background-color: #516FAD;
 }
 
 .rounded-circle {
-    width: 119px;
+    margin: 10px;
+    width: 150px;
     border-radius: 50%
 }
 
@@ -138,13 +190,12 @@ a {
     height: 100px;
     background-color: #ff7f00;
     bottom: 0;
+    color: white;
 }
 
-.main-footer .logo{
-  padding: 15px;
+.main-footer .logo {
+    padding: 15px;
 }
-
-/* TODO change from pixels */
 
 .ctrl-btn {
     background-color: #fff;
@@ -203,17 +254,17 @@ a {
     padding: 0;
 }
 
-
 /* SMALL */
+
 /* TODO :align img */
 
 @media (max-width:640px) {
-    .meme-editor{
+    .meme-editor {
         flex-direction: column;
-        width:100%
+        width: 100%
     }
-    #canvas{
+    #canvas {
         margin-inline-end: 0;
-        margin:auto;
+        margin: auto;
     }
 }
