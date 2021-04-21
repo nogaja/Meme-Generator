@@ -36,7 +36,8 @@ function renderBtns(imgId) {
     <button class= "ctrl-btn" onclick="onChangeFontSize(-1,${imgId})"><img src="icons/decrease font - icon.png"></button>
     <button class= "ctrl-btn btn-up" onclick="onMoveLine(-1,${imgId})"></button>
     <button class= "ctrl-btn btn-down" onclick="onMoveLine(1,${imgId})"></button>
-    <button class= "ctrl-btn btn-change-line" onclick="onChangeLineFocus(${imgId})"><img src="icons/up-and-down-opposite-double-arrows-side-by-side.png"></button>
+    <button class= "ctrl-btn" onclick="onChangeLineFocus(${imgId})"><img src="icons/up-and-down-opposite-double-arrows-side-by-side.png"></button>
+    <button class= "ctrl-btn" onclick="onRemoveFocus()">remove focus</button>
     `
     document.querySelector('.top-btns').innerHTML = strHtml //change name/sections
 }
@@ -73,6 +74,10 @@ function onChangeStrokeColor (color){
     changeStroke(color)
 }
 
+function onChangeFillColor(color){
+    changeFill(color)
+}
+
 function onChangeLineFocus(imgId) {
     changeLineFocus(imgId)
     var img = getImgById(imgId)
@@ -101,6 +106,11 @@ function onAddLine() {
 
 function onRemoveLine() {
     removeLine()
+    setTimeout(drawText, .3)
+}
+
+function onRemoveFocus(){
+    removeFocus()
     setTimeout(drawText, .3)
 }
 

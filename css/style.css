@@ -74,11 +74,17 @@ a {
     margin: 15px;
 }
 
-.stroke-input{
+.color-input{
     position: absolute;
     opacity: 0;
     height: 50px;
-    left: 496px;
+    width: 50px;
+    cursor: pointer;
+    left: 489px;
+}
+
+.fill-input{
+    left: 547px;
 }
 
 /* social */

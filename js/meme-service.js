@@ -16,7 +16,6 @@ var gImgs = [
 
 ];
 
-// will need to add function create line/ create lines 
 var gMeme = {
     gSelectedImgId: 1,
     selectedLineIdx: 0,
@@ -54,11 +53,15 @@ function changeLineFocus(imgId) {
     if (newSelectedLineIdx >= gMeme.lines.length) newSelectedLineIdx = 0;
     if (gMeme.lines[prevLineIdx]) {
         gMeme.lines[prevLineIdx].isFocused = false
-        gMeme.lines[prevLineIdx].stroke = gMeme.lines[gMeme.selectedLineIdx].prevStroke // change to the line written  
+        gMeme.lines[prevLineIdx].stroke = gMeme.lines[gMeme.selectedLineIdx].prevStroke  
     }
     gMeme.lines[newSelectedLineIdx].isFocused = true
     gMeme.lines[newSelectedLineIdx].stroke = 'red'
     gMeme.selectedLineIdx = newSelectedLineIdx;
+}
+
+function removeFocus(){
+    gMeme.lines[gMeme.selectedLineIdx].stroke = gMeme.lines[gMeme.selectedLineIdx].prevStroke  
 }
 
 function alignText(direction) {
@@ -98,6 +101,10 @@ function changeFont(font) {
 
 function changeStroke(color) {
     gMeme.lines[gMeme.selectedLineIdx].prevStroke = color
+}
+
+function changeFill(color) {
+    gMeme.lines[gMeme.selectedLineIdx].fill = color
 }
 
 //will I use imgId? no... FIX!

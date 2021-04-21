@@ -45,7 +45,8 @@
                 <button class="ctrl-btn" onclick="onAlign('right')"><img src="icons/align-to-left.png"></button>
                 <button class="ctrl-btn" onclick="onAlign('center')"><img
                         src="icons/center-text-alignment.png"></button>
-                <button class="ctrl-btn" onclick="onAlign('left')"><img src="icons/align-to-right.png"></button><br>
+                <button class="ctrl-btn" onclick="onAlign('left')"><img src="icons/align-to-right.png"></button>
+            </section>
                 <label for="fonts">Choose a font:</label>
                 <select onchange="onChangeFont(value)" name="fonts" id="fonts">
                     <!-- implement font style on options -->
@@ -55,10 +56,12 @@
                     <option value="Calibri">Calibri</option>
                 </select>
                 <button class="ctrl-btn"><img src ="icons/text stroke.png"></button>
-                <input class="stroke-input" type="color" id="color" value="#ff1111" onchange="onChangeStrokeColor(value)">
-            </section>
+                <input class="color-input" type="color" id="color" value="#ff1111" onchange="onChangeStrokeColor(value)">
+                <button class="ctrl-btn"><img src ="icons/paint-board-and-brush.png"></button>
+                <input class="color-input fill-input" type="color" id="color" value="#ff1111" onchange="onChangeFillColor(value)">
+            
             <section class="buttom-btns">
-
+                <button class= "ctrl-btn">Download</button>
             </section>
         </div>
     </div>
