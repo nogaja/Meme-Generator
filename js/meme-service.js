@@ -1,7 +1,7 @@
 'use strict'
 var gNextId = 1;
 const KEY = 'memes'
-var gMemes;
+var gSavedMemes=[];
 
 
 var gKeywords = { 'happy': 12, 'funny puk': 1 }
@@ -120,6 +120,21 @@ function getImgById(ImgId) {
 
 // you are here -  add also an indication to user that meme was saved
 function saveMeme(){
-    saveToStorage(KEY,gMeme)
+    var meme = {url:gCanvas.toDataURL(),gMeme}
+ 
+    gSavedMemes.push(meme)
+    saveToStorage(KEY,gSavedMemes)
 }
 
+function getSavedMemes(){
+    const strHtmls=gSavedMemes.map(meme=>{
+        return `<img onclick="onSetSavedMeme(${meme})" src="${meme.url}"/>`
+    })
+
+}
+
+
+
+
+// if (gKeyewords[txt] <= 30)   gKeyewords[txt]++
+//for filter

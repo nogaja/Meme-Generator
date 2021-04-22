@@ -19,8 +19,8 @@ function renderImgs() {
     })
     document.querySelector('.imgs-container').innerHTML = strHtmls.join('')
 }
- //TODO :wherever there is style- use classlist
-function onShowGallery(){
+//TODO :wherever there is style- use classlist
+function onShowGallery() {
     document.querySelector('.meme-editor').style.display = 'none'
     document.querySelector('.imgs-container').style.opacity = 1
 }
@@ -28,7 +28,7 @@ function onShowGallery(){
 function onOpenEditor(imgId) {
     document.querySelector('.meme-editor').style.display = 'flex'
     document.querySelector('.imgs-container').style.opacity = 0
-    gMeme.gSelectedImgId= imgId //TODO: move to service
+    gMeme.gSelectedImgId = imgId //TODO: move to service
     var img = getImgById(imgId)
     drawImage(img)
 }
@@ -42,23 +42,22 @@ function resizeCanvas() {
 function drawImage(selectedImg) {
     var img = new Image()
     img.src = selectedImg.url
-    img.onload = () => {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
-    }
 }
 
+//repeating... TODO- write render canvas?
 function onChangeFontSize(diff) {
     changeFontSize(diff)
     var img = getImgById(gMeme.gSelectedImgId)
     drawImage(img)
-    setTimeout(drawText, .3)
+    drawText()
 }
 
 function onChangeFont(font) {
     changeFont(font)
     var img = getImgById(gMeme.gSelectedImgId)
     drawImage(img)
-    setTimeout(drawText, .3)
+    drawText()
 }
 
 function onChangeStrokeColor(color) {
@@ -73,43 +72,43 @@ function onChangeLineFocus() {
     changeLineFocus()
     var img = getImgById(gMeme.gSelectedImgId)
     drawImage(img)
-    setTimeout(drawText, .3)
+    drawText()
 }
 
 function onMoveLine(diff) {
     var newPosY = moveLine(diff)
     var img = getImgById(gMeme.gSelectedImgId)
     drawImage(img)
-    setTimeout(drawText, .3, 0, newPosY)
+    drawText()
 }
 
 function onAlign(direction) {
     alignText(direction)
     var img = getImgById(gMeme.gSelectedImgId)
     drawImage(img)
-    setTimeout(drawText, .3)
+    drawText()
 }
 
 function onAddLine() {
     addLine()
-    setTimeout(drawText, .3)
+    drawText()
 }
 
 function onRemoveLine() {
     removeLine()
     var img = getImgById(gMeme.gSelectedImgId)
     drawImage(img)
-    setTimeout(drawText, .3)
+    drawText()
 }
 
 function onRemoveFocus() {
     removeFocus()
-    setTimeout(drawText, .3)
+    drawText()
 }
 
 function drawText(text, x, y) {
     var lines = gMeme.lines
-    lines.forEach(function (line) {
+    lines.forEach(line => {
         text = `${line.txt}`
         x = line.posX
         y = line.posY
@@ -128,7 +127,13 @@ function onEnterText(txt) {
     gMeme.lines[currLine].txt = txt
     var img = getImgById(gMeme.gSelectedImgId)
     drawImage(img)
-    setTimeout(drawText, .3, txt)
+    drawText(txt)
+}
+
+function onSetSavedMeme(meme){
+    setSavedMeme(meme)
+    drawImage(meme.gSelectedImgId)
+    // drawText
 }
 
 function onDownloadMeme(elLink) {
@@ -136,17 +141,27 @@ function onDownloadMeme(elLink) {
     elLink.href = data
 }
 
-function onSaveMeme(){
+function onSaveMeme() {
     saveMeme()
 }
 
-// TODO- builed a modal
-
-function onCloseModal(){
+function onCloseModal() {
     document.querySelector('.modal').classList.add('hide')
 }
 
-function onOpenModal(){
+function onOpenModal() {
+
+    gMemes = getSavedMemes()
     document.querySelector('.modal').classList.remove('hide')
 }
+
+// function renderImgs() {
+//     var imgs = gImgs
+//     var strHtmls = imgs.map((img) => {
+//         return `
+//         <img class="grid img-main" src=${img.url} onclick="onOpenEditor(${img.id})">
+//         `
+//     })
+//     document.querySelector('.imgs-container').innerHTML = strHtmls.join('')
+// }
 
