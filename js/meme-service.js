@@ -121,18 +121,10 @@ function getImgById(ImgId) {
 // you are here -  add also an indication to user that meme was saved
 function saveMeme(){
     var meme = {url:gCanvas.toDataURL(),gMeme}
- 
     gSavedMemes.push(meme)
     saveToStorage(KEY,gSavedMemes)
+    return gSavedMemes
 }
-
-function getSavedMemes(){
-    const strHtmls=gSavedMemes.map(meme=>{
-        return `<img onclick="onSetSavedMeme(${meme})" src="${meme.url}"/>`
-    })
-
-}
-
 
 
 

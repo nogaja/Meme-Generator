@@ -145,23 +145,21 @@ function onSaveMeme() {
     saveMeme()
 }
 
+function getSavedMemes(){
+    const strHtmls=gSavedMemes.map(meme=>{  //gSavedMemes should come from service
+        return `<img src="${meme.url}"/>`
+    })
+    return strHtmls
+}
+
+
 function onCloseModal() {
     document.querySelector('.modal').classList.add('hide')
 }
 
 function onOpenModal() {
-
-    gMemes = getSavedMemes()
+    var gMemes = getSavedMemes()
+    let savedMemes= document.querySelector('.saved-memes')
+    savedMemes.innerHTML=gMemes.join('')
     document.querySelector('.modal').classList.remove('hide')
 }
-
-// function renderImgs() {
-//     var imgs = gImgs
-//     var strHtmls = imgs.map((img) => {
-//         return `
-//         <img class="grid img-main" src=${img.url} onclick="onOpenEditor(${img.id})">
-//         `
-//     })
-//     document.querySelector('.imgs-container').innerHTML = strHtmls.join('')
-// }
-
