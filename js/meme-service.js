@@ -126,6 +126,11 @@ function saveMeme(){
     return gSavedMemes
 }
 
+function getMemes(){
+    var memes= loadFromStorage(KEY)
+    return memes
+}
+
 
 
 // if (gKeyewords[txt] <= 30)   gKeyewords[txt]++

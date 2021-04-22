@@ -42,7 +42,7 @@ function resizeCanvas() {
 function drawImage(selectedImg) {
     var img = new Image()
     img.src = selectedImg.url
-        gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
+    gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
 }
 
 //repeating... TODO- write render canvas?
@@ -130,12 +130,6 @@ function onEnterText(txt) {
     drawText(txt)
 }
 
-function onSetSavedMeme(meme){
-    setSavedMeme(meme)
-    drawImage(meme.gSelectedImgId)
-    // drawText
-}
-
 function onDownloadMeme(elLink) {
     const data = gCanvas.toDataURL()
     elLink.href = data
@@ -145,9 +139,11 @@ function onSaveMeme() {
     saveMeme()
 }
 
-function getSavedMemes(){
-    const strHtmls=gSavedMemes.map(meme=>{  //gSavedMemes should come from service
-        return `<img src="${meme.url}"/>`
+function getSavedMemes() {
+    var savedMemes = getMemes()
+    if (!savedMemes) return
+    const strHtmls = savedMemes.map(meme => {
+        return `<img src="${meme.url}"/>` // add editing options
     })
     return strHtmls
 }
@@ -158,8 +154,9 @@ function onCloseModal() {
 }
 
 function onOpenModal() {
-    var gMemes = getSavedMemes()
-    let savedMemes= document.querySelector('.saved-memes')
-    savedMemes.innerHTML=gMemes.join('')
+    var memes = getSavedMemes()
+    let savedMemes = document.querySelector('.saved-memes')
     document.querySelector('.modal').classList.remove('hide')
+    if (!savedMemes) return    // I adress this issue twice
+    savedMemes.innerHTML = memes.join('')
 }
