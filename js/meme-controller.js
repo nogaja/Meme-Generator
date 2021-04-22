@@ -2,11 +2,12 @@
 var gCanvas;
 var gCtx;
 
-
+// TODO- USE DECONSTRUCTION
 function onInit() {
     gCanvas = document.querySelector('#canvas')
     gCtx = gCanvas.getContext('2d')
     renderImgs()
+    onCloseModal()
 }
 
 function renderImgs() {
@@ -135,5 +136,17 @@ function onDownloadMeme(elLink) {
     elLink.href = data
 }
 
+function onSaveMeme(){
+    saveMeme()
+}
 
+// TODO- builed a modal
+
+function onCloseModal(){
+    document.querySelector('.modal').classList.add('hide')
+}
+
+function onOpenModal(){
+    document.querySelector('.modal').classList.remove('hide')
+}
 

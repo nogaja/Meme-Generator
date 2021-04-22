@@ -57,6 +57,21 @@ a {
 .main-nav {
     padding: 10px;
 }
+/* modal */
+.modal {
+    height: 400px;
+    width: 400px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid black;
+    background-color: aliceblue;
+}
+
+.modal.hide{
+    display: none;
+}
 
 /* canvas */
 

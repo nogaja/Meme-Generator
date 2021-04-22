@@ -18,7 +18,7 @@
                 <a onclick="onShowGallery()" href="#">
                     <div class="list-div ">Gallery</div>
                 </a>
-                <a href="#">
+                <a onclick= "onOpenModal()" href="#">
                     <div class="list-div">Memes</div>
                 </a>
                 <a href="#">
@@ -105,6 +105,10 @@
         <div class="logo">memegen</div>
         <small>© all rights reserved 2021.</small>
     </footer>
+    <div class="modal">
+        <h2>Your memes!</h2>
+        <button class="close-modal" onclick="onCloseModal()">CLOSE</button>
+    </div>
 
     <script src="js/meme-storage-service.js"></script>
     <script src="js/meme-service.js"></script>

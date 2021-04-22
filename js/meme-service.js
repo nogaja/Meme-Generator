@@ -1,6 +1,7 @@
 'use strict'
 var gNextId = 1;
 const KEY = 'memes'
+var gMemes;
 
 
 var gKeywords = { 'happy': 12, 'funny puk': 1 }
@@ -116,3 +117,9 @@ function getImgById(ImgId) {
     })
     return img
 }
+
+// you are here -  add also an indication to user that meme was saved
+function saveMeme(){
+    saveToStorage(KEY,gMeme)
+}
+
