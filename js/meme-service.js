@@ -1,5 +1,6 @@
 'use strict'
 var gNextId = 1;
+const KEY = 'memes'
 
 
 var gKeywords = { 'happy': 12, 'funny puk': 1 }

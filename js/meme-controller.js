@@ -18,7 +18,7 @@ function renderImgs() {
     })
     document.querySelector('.imgs-container').innerHTML = strHtmls.join('')
 }
-
+ //TODO :wherever there is style- use classlist
 function onShowGallery(){
     document.querySelector('.meme-editor').style.display = 'none'
     document.querySelector('.imgs-container').style.opacity = 1
@@ -27,7 +27,7 @@ function onShowGallery(){
 function onOpenEditor(imgId) {
     document.querySelector('.meme-editor').style.display = 'flex'
     document.querySelector('.imgs-container').style.opacity = 0
-    gMeme.gSelectedImgId= imgId
+    gMeme.gSelectedImgId= imgId //TODO: move to service
     var img = getImgById(imgId)
     drawImage(img)
 }
