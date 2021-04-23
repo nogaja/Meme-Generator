@@ -93,6 +93,13 @@ a {
 .img-main {
     place-self: center;
     height: 100%;
+    opacity: 0.8;
+    transition: opacity .3s;
+}
+
+.img-main:hover{
+    opacity: 1;
+    cursor: pointer;
 }
 
 /* meme-editor */
@@ -131,7 +138,7 @@ a {
 }
 
 .bottom-btns {
-    margin-top: 15px;
+    margin-top: 30px;
 }
 
 .bottom-btns a {
