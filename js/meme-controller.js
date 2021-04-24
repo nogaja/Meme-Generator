@@ -106,19 +106,16 @@ function onRemoveFocus() {
     drawText()
 }
 
-function drawText(text, x, y) {
+function drawText() {
     var lines = gMeme.lines
     lines.forEach(line => {
-        text = `${line.txt}`
-        x = line.posX
-        y = line.posY
         gCtx.lineWidth = 2
         gCtx.strokeStyle = `${line.stroke}`
         gCtx.fillStyle = `${line.fill}`
         gCtx.font = `${line.size}px  ${gMeme.selectedFont}`
         gCtx.textAlign = line.align
-        gCtx.fillText(text, x, y)
-        gCtx.strokeText(text, x, y)
+        gCtx.fillText(line.txt, line.posX, line.posY)
+        gCtx.strokeText(line.txt, line.posX, line.posY)
     })
 }
 
