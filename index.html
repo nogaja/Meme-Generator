@@ -18,7 +18,7 @@
                 <a onclick="onShowGallery()" href="#">
                     <div class="list-div ">Gallery</div>
                 </a>
-                <a onclick= "onOpenModal()" href="#">
+                <a onclick="onOpenModal()" href="#">
                     <div class="list-div">Memes</div>
                 </a>
                 <a href="#">
@@ -66,6 +66,7 @@
                 <option value="Calibri">Calibri</option>
             </select>
             <div class="flex">
+               
                 <div class="relative">
                     <button class="ctrl-btn"><img src="icons/text stroke.png"><input class="color-input" type="color"
                             id="color" value="#ff1111" onchange="onChangeStrokeColor(value)"></button>
@@ -75,12 +76,22 @@
                             class="color-input fill-input" type="color" id="color" value="#ff1111"
                             onchange="onChangeFillColor(value)"></button>
                 </div>
+                <form class ="flex-col" action="" method="POST" enctype="multipart/form-data" onsubmit="uploadImg(this, event)">
+                    <input type="file" class="file-input btn flex" name="image" onchange="onImgInput(event)" />
+                    <input name="img" id="imgData" type="hidden" />
+                    <button class="btn" type="submit">Share meme</button>
+                    <div class="share-container"></div>
+                </form>
             </div>
             <section class="bottom-btns">
                 <a class="ctrl-btn download-btn" href="#" onclick="onDownloadMeme(this)" download="">Download</a>
                 <a class="ctrl-btn save-btn" href="#" onclick="onSaveMeme()">Save</a>
-                <!-- <input type="file" class="file-input btn" name="image" onchange="onImgInput(event)"> -->
+
+                
+
+
             </section>
+
         </div>
     </div>
     <div class="imgs-container grid">

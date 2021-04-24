@@ -1,6 +1,7 @@
 'use strict'
 var gCanvas;
 var gCtx;
+var gImg;
 
 // TODO- USE DECONSTRUCTION
 function onInit() {
@@ -76,7 +77,7 @@ function onChangeLineFocus() {
 }
 
 function onMoveLine(diff) {
-    var newPosY = moveLine(diff)
+    moveLine(diff)
     var img = getImgById(gMeme.gSelectedImgId)
     drawImage(img)
     drawText()
@@ -156,4 +157,29 @@ function onOpenModal() {
     document.querySelector('.modal').classList.remove('hide')
     if (!savedMemes) return    // I adress this issue twice
     savedMemes.innerHTML = memes.join('')
+}
+
+function onImgInput(ev){
+    loadImageFromInput(ev,renderImg)  
+}
+
+function loadImageFromInput(ev, onImageReady) {
+    document.querySelector('.share-container').innerHTML = ''
+    var reader = new FileReader()
+
+    reader.onload = function (event) {
+        var img = new Image()
+        img.onload = onImageReady.bind(null, img)
+        img.src = event.target.result
+        gImg = img
+        console.log(gImgs)
+        addImg(img.src)
+    }
+    reader.readAsDataURL(ev.target.files[0])
+}
+
+function renderImg(img) {
+    document.querySelector('.meme-editor').style.display = 'flex';
+    gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
+    drawText()
 }

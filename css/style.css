@@ -73,6 +73,8 @@ a {
     grid-gap: 15px;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     grid-auto-rows: 300px;
+    overflow-y: scroll;
+    height: 700px
 }
 
 .modal.hide{
@@ -81,7 +83,7 @@ a {
 
 .close-modal{
     width:20%;
-    height:50%;
+    height:90%;
     margin:auto;
 }
 
@@ -99,6 +101,8 @@ a {
     grid-gap: 15px;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     grid-auto-rows: 300px;
+    padding-right: 40px;
+    padding-left: 40px;
     background-color: #e3e3e3;
 }
 
@@ -150,12 +154,25 @@ a {
 }
 
 .bottom-btns {
-    margin-top: 30px;
+    margin-top: 28px;
 }
 
 .bottom-btns a {
     background-color: #ff7f00;
     border: none;
+}
+
+form .btn{
+    background-color: #ff7f00;
+    border: none;
+    color: #fff;
+    margin-top: 6px;
+    cursor: pointer;
+}
+
+
+form {
+    padding-left:10px;
 }
 
 /* social */

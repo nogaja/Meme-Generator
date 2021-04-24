@@ -132,6 +132,23 @@ function getMemes(){
 }
 
 
+function addImg(url) {
+    const newImg = {
+        id: gImgs.length + 1,
+        url
+    }
+    gMeme.gSelectedImgId = gImgs.length + 1;
+    gImgs.push(newImg);  
+}
+
+// function removeMemeFromStorage(id) {
+//     var memes = loadFromStorage(KEY);
+//     var idxToRemove = memes.findIndex(meme => meme.id === id);
+//     console.log('idxToRemove =', idxToRemove)
+//     memes.splice(idxToRemove, 1);
+//     saveToStorage(KEY, memes);
+//     renderSavedMemes();
+// }
 
 // if (gKeyewords[txt] <= 30)   gKeyewords[txt]++
 //for filter
