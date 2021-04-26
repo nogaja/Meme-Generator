@@ -30,7 +30,6 @@ var gMeme = {
             prevStroke: 'black',
             posX: 150,
             posY: 60,
-            isFocused: false,
         },
         {
             txt: 'With amba',
@@ -41,7 +40,6 @@ var gMeme = {
             prevStroke: 'black',
             posX: 150,
             posY: 250,
-            isFocused: false
         }
     ]
 }
@@ -51,10 +49,8 @@ function changeLineFocus() {
     var newSelectedLineIdx = prevLineIdx + 1;
     if (newSelectedLineIdx >= gMeme.lines.length) newSelectedLineIdx = 0;
     if (gMeme.lines[prevLineIdx]) {
-        gMeme.lines[prevLineIdx].isFocused = false
         gMeme.lines[prevLineIdx].stroke = gMeme.lines[gMeme.selectedLineIdx].prevStroke  
     }
-    gMeme.lines[newSelectedLineIdx].isFocused = true
     gMeme.lines[newSelectedLineIdx].stroke = 'red'
     gMeme.selectedLineIdx = newSelectedLineIdx;
 }
